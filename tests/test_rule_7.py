@@ -3,6 +3,32 @@
 import unittest
 from paf import Paf
 
+class TestRule7WithZeroBuildingNumber(unittest.TestCase):
+    """Test Paf Rule 7 with a 0 Building Number"""
+
+    def setUp(self):
+        """Set up Paf instance"""
+        self.paf = Paf({
+            'sub_building_name': "FLAT 1",
+            'building_name': "HOLLY HOUSE",
+            'building_number': "0",
+            'thoroughfare_name': "OAK",
+            'thoroughfare_descriptor': "AVENUE",
+            'dependent_locality': "BIDDENDEN",
+            'post_town': "ASHFORD",
+            'postcode': "TN27 8BT"
+            })
+
+    def test_list(self):
+        """Test conversion to an list"""
+        address = ["FLAT 1, HOLLY HOUSE", "OAK AVENUE", "BIDDENDEN", "ASHFORD", "TN27 8BT"]
+        self.assertEqual(self.paf.list(), address, "Incorrect Rule 7 with 0 building number format")
+
+    def test_string(self):
+        """Test conversion to a string"""
+        address = "FLAT 1, HOLLY HOUSE, OAK AVENUE, BIDDENDEN, ASHFORD. TN27 8BT"
+        self.assertEqual(self.paf.str(), address, "Incorrect Rule 7 w/ 0 building number format")
+
 class TestRule7WithSubBuildingName(unittest.TestCase):
     """Test Paf Rule 7 with Sub-Building Name Exception"""
 
