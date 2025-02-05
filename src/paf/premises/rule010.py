@@ -26,12 +26,12 @@ class Rule010(Common):
         return(
             self.is_exception('building_name_last_word') and
                 not re.match(r'^\d+$', self.building_name_last_word) and
-                not self.is_non_split_building_name
+                not self.is_known_building_type
             )
 
     @property
-    def is_non_split_building_name(self):
-        """Returns if building name should not be split based on all but last word"""
+    def is_known_building_type(self):
+        """Returns if building name starts with a known building type"""
         return self.building_name_but_last_word in [
             "BACK OF", "BLOCK", "BLOCKS", "BUILDING", "MAISONETTE", "MAISONETTES", "REAR OF",
             "SHOP", "SHOPS", "STALL", "STALLS", "SUITE", "SUITES", "UNIT", "UNITS"
