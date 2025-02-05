@@ -20,14 +20,22 @@ class Paf(LineableMixin):
         return self.__class__.__name__ + '(' + str(args) + ')'
 
     def __str__(self):
-        """Return Paf as string"""
+        """Return Paf as string representation"""
         line = ', '.join(self.lines)
         if self.is_empty('postcode'):
             return line
         return '. '.join([line] + [getattr(self, 'postcode')])
 
+    def __iter__(self):
+        """Return Paf as iterable"""
+        yield from self.lines.__iter__()
+        if not self.is_empty('postcode'):
+            yield from [getattr(self, 'postcode')].__iter__()
+
+    def str(self):
+        """Return Paf as string"""
+        return str(self)
+
     def list(self):
         """Return Paf as list of strings"""
-        if self.is_empty('postcode'):
-            return self.lines
-        return self.lines + [getattr(self, 'postcode')]
+        return list(self)

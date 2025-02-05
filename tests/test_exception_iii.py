@@ -24,7 +24,7 @@ class TestExceptionIII(unittest.TestCase):
     def test_string(self):
         """Test conversion to a string"""
         address = "K PORTLAND ROAD, DORKING. RH4 1EW"
-        self.assertEqual(str(self.paf), address, "Incorrect Exception III string format")
+        self.assertEqual(self.paf.str(), address, "Incorrect Exception III string format")
 
 if __name__ == '__main__':
     unittest.main()

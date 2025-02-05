@@ -22,7 +22,7 @@ class TestPoBox(unittest.TestCase):
     def test_string(self):
         """Test conversion to a string"""
         address = "PO BOX 61, FAREHAM. PO14 1UX"
-        self.assertEqual(str(self.paf), address, "Incorrect PO Box string format")
+        self.assertEqual(self.paf.str(), address, "Incorrect PO Box string format")
 
 if __name__ == '__main__':
     unittest.main()

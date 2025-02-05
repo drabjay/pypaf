@@ -6,7 +6,7 @@ Formats the elements of a Royal Mail Postcode Address File entry according to th
 
 Install it from PyPI:
 
-    $ pip install pypaf
+    pip install pypaf
 
 ## Usage
 
@@ -22,7 +22,7 @@ paf = Paf({
     'post_town': "HIGH WYCOMBE",
     'postcode': "HP10 8LS"
 })
-paf.list()
+paf.list() # or list(paf)
 
 ['1-2 NURSERY LANE', 'PENN', 'HIGH WYCOMBE', 'HP10 8LS']
 ```
@@ -39,7 +39,7 @@ paf = Paf({
     'post_town': "HIGH WYCOMBE",
     'postcode': "HP10 8LS"
 })
-str(paf)
+paf.str() # or str(paf)
 
 '1-2 NURSERY LANE, PENN, HIGH WYCOMBE. HP10 8LS'
 ```

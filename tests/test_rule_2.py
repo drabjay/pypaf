@@ -24,7 +24,7 @@ class TestRule2(unittest.TestCase):
     def test_string(self):
         """Test conversion to a string"""
         address = "1 ACACIA AVENUE, ABINGDON. OX14 4PG"
-        self.assertEqual(str(self.paf), address, "Incorrect Rule 2 string format")
+        self.assertEqual(self.paf.str(), address, "Incorrect Rule 2 string format")
 
 if __name__ == '__main__':
     unittest.main()

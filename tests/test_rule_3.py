@@ -26,7 +26,7 @@ class TestRule3WithBuildingName(unittest.TestCase):
     def test_string(self):
         """Test conversion to a string"""
         address = "1A SEASTONE COURT, STATION ROAD, HOLT. NR25 7HG"
-        self.assertEqual(str(self.paf), address, "Incorrect Rule 3 with building string format")
+        self.assertEqual(self.paf.str(), address, "Incorrect Rule 3 with building string format")
 
 class TestRule3WithoutBuildingName(unittest.TestCase):
     """Test Paf Rule 3 without Building Name Exception"""
@@ -49,7 +49,7 @@ class TestRule3WithoutBuildingName(unittest.TestCase):
     def test_string(self):
         """Test conversion to a string"""
         address = "THE MANOR, UPPER ROAD, HORLEY. RH6 0HP"
-        self.assertEqual(str(self.paf), address, "Incorrect Rule 3 without building string format")
+        self.assertEqual(self.paf.str(), address, "Incorrect Rule 3 without building string format")
 
 class TestRule3WithSplit(unittest.TestCase):
     """Test Paf Rule 3 with Split Exception"""
@@ -79,7 +79,7 @@ class TestRule3WithSplit(unittest.TestCase):
     def test_string(self):
         """Test conversion to a string"""
         address = "S D ALCOTT FLORISTS, FLOWER HOUSE, 189A PYE GREEN ROAD, CANNOCK. WS11 5SB"
-        self.assertEqual(str(self.paf), address, "Incorrect Rule 3 with split string format")
+        self.assertEqual(self.paf.str(), address, "Incorrect Rule 3 with split string format")
 
 class TestRule3WithoutSplit(unittest.TestCase):
     """Test Paf Rule 3 without Split Exception"""
@@ -103,7 +103,7 @@ class TestRule3WithoutSplit(unittest.TestCase):
     def test_string(self):
         """Test conversion to a string"""
         address = "JAMES VILLA HOLIDAYS, CENTRE 30, ST LAURENCE AVENUE, GRAFTON. ME16 0LP"
-        self.assertEqual(str(self.paf), address, "Incorrect Rule 3 without split string format")
+        self.assertEqual(self.paf.str(), address, "Incorrect Rule 3 without split string format")
 
 if __name__ == '__main__':
     unittest.main()

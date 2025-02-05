@@ -49,7 +49,7 @@ class TestMainfile(unittest.TestCase):
             "GLASGOW. "
             "G72 0UP"
             )
-        self.assertEqual(str(self.paf), address, "Incorrect Mainfile string format")
+        self.assertEqual(self.paf.str(), address, "Incorrect Mainfile string format")
 
 if __name__ == '__main__':
     unittest.main()

@@ -26,7 +26,7 @@ class TestRule7WithSubBuildingName(unittest.TestCase):
     def test_string(self):
         """Test conversion to a string"""
         address = "2B THE TOWER, 27 JOHN STREET, WINCHESTER. SO23 9AP"
-        self.assertEqual(str(self.paf), address, "Incorrect Rule 7 with sub-building string format")
+        self.assertEqual(self.paf.str(), address, "Incorrect Rule 7 w/ sub-building string format")
 
 class TestRule7(unittest.TestCase):
     """Test Paf Rule 7 without Exception"""
@@ -51,7 +51,7 @@ class TestRule7(unittest.TestCase):
     def test_string(self):
         """Test conversion to a string"""
         address = "BASEMENT FLAT, VICTORIA HOUSE, 15 THE STREET, CORYTON. BP23 6AA"
-        self.assertEqual(str(self.paf), address, "Incorrect Rule 7 string format")
+        self.assertEqual(self.paf.str(), address, "Incorrect Rule 7 string format")
 
 if __name__ == '__main__':
     unittest.main()

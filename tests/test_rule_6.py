@@ -25,7 +25,7 @@ class TestRule6WithSubBuildingName(unittest.TestCase):
     def test_string(self):
         """Test conversion to a string"""
         address = "10B BARRY JACKSON TOWER, ESTONE WALK, BIRMINGHAM. B6 5BA"
-        self.assertEqual(str(self.paf), address, "Incorrect Rule 6 with sub-building string format")
+        self.assertEqual(self.paf.str(), address, "Incorrect Rule 6 w/ sub-building string format")
 
 class TestRule6WithBuildingName(unittest.TestCase):
     """Test Paf Rule 6 with Building Name Exception"""
@@ -49,7 +49,7 @@ class TestRule6WithBuildingName(unittest.TestCase):
     def test_string(self):
         """Test conversion to a string"""
         address = "CARETAKERS FLAT, 110-114 HIGH STREET WEST, BRISTOL. BS1 2AW"
-        self.assertEqual(str(self.paf), address, "Incorrect Rule 6 with building string format")
+        self.assertEqual(self.paf.str(), address, "Incorrect Rule 6 with building string format")
 
 class TestRule6(unittest.TestCase):
     """Test Paf Rule 6 without Exception"""
@@ -73,7 +73,7 @@ class TestRule6(unittest.TestCase):
     def test_string(self):
         """Test conversion to a string"""
         address = "STABLES FLAT, THE MANOR, UPPER HILL, HORLEY. RH6 0HP"
-        self.assertEqual(str(self.paf), address, "Incorrect Rule 6 string format")
+        self.assertEqual(self.paf.str(), address, "Incorrect Rule 6 string format")
 
 if __name__ == '__main__':
     unittest.main()
