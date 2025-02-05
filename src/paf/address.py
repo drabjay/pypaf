@@ -1,12 +1,12 @@
-"""Paf"""
+"""PAF Address"""
 
 from .lineable import LineableMixin
 
-class Paf(LineableMixin):
-    """Main Paf class"""
+class Address(LineableMixin):
+    """Main PAF Address class"""
 
     def __init__(self, args):
-        """Initialise Paf address elements"""
+        """Initialise Address elements"""
         for key in self.__class__.attrs:
             setattr(self, key, '')
         for key, val in args.items():
@@ -15,27 +15,27 @@ class Paf(LineableMixin):
         self.extend_premises()
 
     def __repr__(self):
-        """Return full representation of Paf"""
+        """Return full representation of an Address"""
         args = {k: getattr(self, k) for k in self.__class__.attrs if getattr(self, k, None)}
         return self.__class__.__name__ + '(' + str(args) + ')'
 
     def __str__(self):
-        """Return Paf as string representation"""
+        """Return Address as string representation"""
         line = ', '.join(self.lines)
         if self.is_empty('postcode'):
             return line
         return '. '.join([line] + [getattr(self, 'postcode')])
 
     def __iter__(self):
-        """Return Paf as iterable"""
+        """Return Address as iterable"""
         yield from self.lines.__iter__()
         if not self.is_empty('postcode'):
             yield from [getattr(self, 'postcode')].__iter__()
 
     def str(self):
-        """Return Paf as string"""
+        """Return Address as string"""
         return str(self)
 
     def list(self):
-        """Return Paf as list of strings"""
+        """Return Address as list of strings"""
         return list(self)

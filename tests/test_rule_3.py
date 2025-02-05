@@ -1,14 +1,14 @@
-"""Test Paf Rule 3 formatting"""
+"""Test Address Rule 3 formatting"""
 
 import unittest
-from paf import Paf
+import paf
 
 class TestRule3WithBuildingName(unittest.TestCase):
-    """Test Paf Rule 3 with Building Name Exception"""
+    """Test Address Rule 3 with Building Name Exception"""
 
     def setUp(self):
-        """Set up Paf instance"""
-        self.paf = Paf({
+        """Set up Address instance"""
+        self.address = paf.Address({
             'building_name': "1A",
             'dependent_thoroughfare_name': "SEASTONE",
             'dependent_thoroughfare_descriptor': "COURT",
@@ -21,19 +21,19 @@ class TestRule3WithBuildingName(unittest.TestCase):
     def test_list(self):
         """Test conversion to an list"""
         address = ["1A SEASTONE COURT", "STATION ROAD", "HOLT", "NR25 7HG"]
-        self.assertEqual(self.paf.list(), address, "Incorrect Rule 3 with building list format")
+        self.assertEqual(self.address.list(), address, "Incorrect Rule 3 w/ building list format")
 
     def test_string(self):
         """Test conversion to a string"""
         address = "1A SEASTONE COURT, STATION ROAD, HOLT. NR25 7HG"
-        self.assertEqual(self.paf.str(), address, "Incorrect Rule 3 with building string format")
+        self.assertEqual(self.address.str(), address, "Incorrect Rule 3 w/ building string format")
 
 class TestRule3WithoutBuildingName(unittest.TestCase):
-    """Test Paf Rule 3 without Building Name Exception"""
+    """Test Address Rule 3 without Building Name Exception"""
 
     def setUp(self):
-        """Set up Paf instance"""
-        self.paf = Paf({
+        """Set up Address instance"""
+        self.address = paf.Address({
             'building_name': "THE MANOR",
             'thoroughfare_name': "UPPER",
             'thoroughfare_descriptor': "ROAD",
@@ -44,19 +44,19 @@ class TestRule3WithoutBuildingName(unittest.TestCase):
     def test_list(self):
         """Test conversion to an list"""
         address = ["THE MANOR", "UPPER ROAD", "HORLEY", "RH6 0HP"]
-        self.assertEqual(self.paf.list(), address, "Incorrect Rule 3 without building list format")
+        self.assertEqual(self.address.list(), address, "Incorrect Rule 3 w/o building list format")
 
     def test_string(self):
         """Test conversion to a string"""
         address = "THE MANOR, UPPER ROAD, HORLEY. RH6 0HP"
-        self.assertEqual(self.paf.str(), address, "Incorrect Rule 3 without building string format")
+        self.assertEqual(self.address.str(), address, "Incorrect Rule 3 w/ building string format")
 
 class TestRule3WithSplit(unittest.TestCase):
-    """Test Paf Rule 3 with Split Exception"""
+    """Test Address Rule 3 with Split Exception"""
 
     def setUp(self):
-        """Set up Paf instance"""
-        self.paf = Paf({
+        """Set up Address instance"""
+        self.address = paf.Address({
             'organisation_name': "S D ALCOTT FLORISTS",
             'building_name': "FLOWER HOUSE 189A",
             'thoroughfare_name': "PYE GREEN",
@@ -74,19 +74,19 @@ class TestRule3WithSplit(unittest.TestCase):
             "CANNOCK",
             "WS11 5SB"
             ]
-        self.assertEqual(self.paf.list(), address, "Incorrect Rule 3 with split list format")
+        self.assertEqual(self.address.list(), address, "Incorrect Rule 3 with split list format")
 
     def test_string(self):
         """Test conversion to a string"""
         address = "S D ALCOTT FLORISTS, FLOWER HOUSE, 189A PYE GREEN ROAD, CANNOCK. WS11 5SB"
-        self.assertEqual(self.paf.str(), address, "Incorrect Rule 3 with split string format")
+        self.assertEqual(self.address.str(), address, "Incorrect Rule 3 with split string format")
 
 class TestRule3WithoutSplit(unittest.TestCase):
-    """Test Paf Rule 3 without Split Exception"""
+    """Test Address Rule 3 without Split Exception"""
 
     def setUp(self):
-        """Set up Paf instance"""
-        self.paf = Paf({
+        """Set up Address instance"""
+        self.address = paf.Address({
             'organisation_name': "JAMES VILLA HOLIDAYS",
             'building_name': "CENTRE 30",
             'thoroughfare_name': "ST LAURENCE",
@@ -98,12 +98,12 @@ class TestRule3WithoutSplit(unittest.TestCase):
     def test_list(self):
         """Test conversion to an list"""
         address = ["JAMES VILLA HOLIDAYS", "CENTRE 30", "ST LAURENCE AVENUE", "GRAFTON", "ME16 0LP"]
-        self.assertEqual(self.paf.list(), address, "Incorrect Rule 3 without split list format")
+        self.assertEqual(self.address.list(), address, "Incorrect Rule 3 w/o split list format")
 
     def test_string(self):
         """Test conversion to a string"""
         address = "JAMES VILLA HOLIDAYS, CENTRE 30, ST LAURENCE AVENUE, GRAFTON. ME16 0LP"
-        self.assertEqual(self.paf.str(), address, "Incorrect Rule 3 without split string format")
+        self.assertEqual(self.address.str(), address, "Incorrect Rule 3 w/o split string format")
 
 if __name__ == '__main__':
     unittest.main()

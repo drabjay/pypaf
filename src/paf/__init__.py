@@ -1,6 +1,6 @@
 """__init__ file"""
 
-from .paf import Paf
+from .address import Address
 from .version import __version__
 
-__all__ = ["Paf", "__version__"]
+__all__ = ["Address", "__version__"]

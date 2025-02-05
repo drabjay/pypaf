@@ -10,11 +10,11 @@ Install it from PyPI:
 
 ## Usage
 
-May be used to format the PAF elements as an array of strings:
+May be used to format the PAF Address elements as an array of strings:
 
 ```python
-from paf import Paf
-paf = Paf({
+import paf
+address = paf.Address({
     'building_name': "1-2",
     'thoroughfare_name': "NURSERY",
     'thoroughfare_descriptor': "LANE",
@@ -22,7 +22,7 @@ paf = Paf({
     'post_town': "HIGH WYCOMBE",
     'postcode': "HP10 8LS"
 })
-paf.list() # or list(paf)
+address.list() # or list(address)
 
 ['1-2 NURSERY LANE', 'PENN', 'HIGH WYCOMBE', 'HP10 8LS']
 ```
@@ -30,8 +30,8 @@ paf.list() # or list(paf)
 Or as a single string:
 
 ```python
-from paf import Paf
-paf = Paf({
+import paf
+address = paf.Address({
     'building_name': "1-2",
     'thoroughfare_name': "NURSERY",
     'thoroughfare_descriptor': "LANE",
@@ -39,7 +39,7 @@ paf = Paf({
     'post_town': "HIGH WYCOMBE",
     'postcode': "HP10 8LS"
 })
-paf.str() # or str(paf)
+address.str() # or str(address)
 
 '1-2 NURSERY LANE, PENN, HIGH WYCOMBE. HP10 8LS'
 ```

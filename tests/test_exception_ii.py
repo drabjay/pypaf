@@ -1,14 +1,14 @@
-"""Test Paf Exception II formatting"""
+"""Test Address Exception II formatting"""
 
 import unittest
-from paf import Paf
+import paf
 
 class TestExceptionII(unittest.TestCase):
-    """Test Paf Exception II"""
+    """Test Address Exception II"""
 
     def setUp(self):
-        """Set up Paf instance"""
-        self.paf = Paf({
+        """Set up Address instance"""
+        self.address = paf.Address({
             'building_name': "12A",
             'thoroughfare_name': "UPPERKIRKGATE",
             'post_town': "ABERDEEN",
@@ -18,12 +18,12 @@ class TestExceptionII(unittest.TestCase):
     def test_list(self):
         """Test conversion to an list"""
         address = ["12A UPPERKIRKGATE", "ABERDEEN", "AB10 1BA"]
-        self.assertEqual(self.paf.list(), address, "Incorrect Exception II list format")
+        self.assertEqual(self.address.list(), address, "Incorrect Exception II list format")
 
     def test_string(self):
         """Test conversion to a string"""
         address = "12A UPPERKIRKGATE, ABERDEEN. AB10 1BA"
-        self.assertEqual(self.paf.str(), address, "Incorrect Exception II string format")
+        self.assertEqual(self.address.str(), address, "Incorrect Exception II string format")
 
 if __name__ == '__main__':
     unittest.main()

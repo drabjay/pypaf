@@ -1,14 +1,14 @@
-"""Test Paf Mainfile formatting"""
+"""Test Address Mainfile formatting"""
 
 import unittest
-from paf import Paf
+import paf
 
 class TestMainfile(unittest.TestCase):
-    """Test Paf Mainfile"""
+    """Test Address Mainfile"""
 
     def setUp(self):
-        """Set up Paf instance"""
-        self.paf = Paf({
+        """Set up Address instance"""
+        self.address = paf.Address({
             'organisation_name': "SOUTH LANARKSHIRE COUNCIL",
             'department_name': "HEAD START",
             'sub_building_name': "UNIT 1",
@@ -34,7 +34,7 @@ class TestMainfile(unittest.TestCase):
             "GLASGOW",
             "G72 0UP"
             ]
-        self.assertEqual(self.paf.list(), address, "Incorrect Mainfile list format")
+        self.assertEqual(self.address.list(), address, "Incorrect Mainfile list format")
 
     def test_string(self):
         """Test conversion to a string"""
@@ -49,7 +49,7 @@ class TestMainfile(unittest.TestCase):
             "GLASGOW. "
             "G72 0UP"
             )
-        self.assertEqual(self.paf.str(), address, "Incorrect Mainfile string format")
+        self.assertEqual(self.address.str(), address, "Incorrect Mainfile string format")
 
 if __name__ == '__main__':
     unittest.main()
