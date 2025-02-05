@@ -44,6 +44,12 @@ address.str() # or str(address)
 '1-2 NURSERY LANE, PENN, HIGH WYCOMBE. HP10 8LS'
 ```
 
+## Development
+
+After checking out the repo, run `pytest` to run the tests.
+
+To release a new version, update the version number in `version.py`, and then run `python -m build`, which will create a distribution archive. Run `python -m twine upload dist/*`, to upload the distribution archive to [pypi.org](https://pypi.org).
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/drabjay/pypaf. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
