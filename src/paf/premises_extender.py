@@ -22,4 +22,6 @@ class PremisesExtenderMixin(AttributeMixin):
     def extend_premises(self):
         """Dynamically extends instance with appropriate premises rule"""
         base_cls = self.__class__
-        self.__class__ = type(base_cls.__name__, (base_cls, self.premises_rule), {})
+        object.__setattr__(
+            self, '__class__', type(base_cls.__name__, (base_cls, self.premises_rule), {})
+            )
