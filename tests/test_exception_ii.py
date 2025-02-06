@@ -18,12 +18,12 @@ class TestExceptionII(unittest.TestCase):
     def test_list(self):
         """Test conversion to an list"""
         address = ["12A UPPERKIRKGATE", "ABERDEEN", "AB10 1BA"]
-        self.assertEqual(self.address.list(), address, "Incorrect Exception II list format")
+        self.assertEqual(self.address.as_list(), address, "Incorrect Exception II list format")
 
     def test_string(self):
         """Test conversion to a string"""
         address = "12A UPPERKIRKGATE, ABERDEEN. AB10 1BA"
-        self.assertEqual(self.address.str(), address, "Incorrect Exception II string format")
+        self.assertEqual(self.address.as_str(), address, "Incorrect Exception II string format")
 
 if __name__ == '__main__':
     unittest.main()

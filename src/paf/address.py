@@ -34,10 +34,10 @@ class Address(ImmutableMixin, LineableMixin):
         if not self.is_empty('postcode'):
             yield from [getattr(self, 'postcode')].__iter__()
 
-    def str(self):
+    def as_str(self):
         """Return Address as string"""
         return str(self)
 
-    def list(self):
+    def as_list(self):
         """Return Address as list of strings"""
         return list(self)

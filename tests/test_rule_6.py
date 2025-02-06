@@ -21,14 +21,14 @@ class TestRule6WithSubBuildingName(unittest.TestCase):
         """Test conversion to an list"""
         address = ["10B BARRY JACKSON TOWER", "ESTONE WALK", "BIRMINGHAM", "B6 5BA"]
         self.assertEqual(
-            self.address.list(), address, "Incorrect Rule 6 with sub-building list format"
+            self.address.as_list(), address, "Incorrect Rule 6 with sub-building list format"
             )
 
     def test_string(self):
         """Test conversion to a string"""
         address = "10B BARRY JACKSON TOWER, ESTONE WALK, BIRMINGHAM. B6 5BA"
         self.assertEqual(
-            self.address.str(), address, "Incorrect Rule 6 with sub-building string format"
+            self.address.as_str(), address, "Incorrect Rule 6 with sub-building string format"
             )
 
 class TestRule6WithBuildingName(unittest.TestCase):
@@ -48,12 +48,16 @@ class TestRule6WithBuildingName(unittest.TestCase):
     def test_list(self):
         """Test conversion to an list"""
         address = ["CARETAKERS FLAT", "110-114 HIGH STREET WEST", "BRISTOL", "BS1 2AW"]
-        self.assertEqual(self.address.list(), address, "Incorrect Rule 6 w/ building list format")
+        self.assertEqual(
+            self.address.as_list(), address, "Incorrect Rule 6 w/ building list format"
+            )
 
     def test_string(self):
         """Test conversion to a string"""
         address = "CARETAKERS FLAT, 110-114 HIGH STREET WEST, BRISTOL. BS1 2AW"
-        self.assertEqual(self.address.str(), address, "Incorrect Rule 6 w/ building string format")
+        self.assertEqual(
+            self.address.as_str(), address, "Incorrect Rule 6 w/ building string format"
+            )
 
 class TestRule6(unittest.TestCase):
     """Test Address Rule 6 without Exception"""
@@ -72,12 +76,12 @@ class TestRule6(unittest.TestCase):
     def test_list(self):
         """Test conversion to an list"""
         address = ["STABLES FLAT", "THE MANOR", "UPPER HILL", "HORLEY", "RH6 0HP"]
-        self.assertEqual(self.address.list(), address, "Incorrect Rule 6 list format")
+        self.assertEqual(self.address.as_list(), address, "Incorrect Rule 6 list format")
 
     def test_string(self):
         """Test conversion to a string"""
         address = "STABLES FLAT, THE MANOR, UPPER HILL, HORLEY. RH6 0HP"
-        self.assertEqual(self.address.str(), address, "Incorrect Rule 6 string format")
+        self.assertEqual(self.address.as_str(), address, "Incorrect Rule 6 string format")
 
 if __name__ == '__main__':
     unittest.main()

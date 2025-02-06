@@ -23,14 +23,14 @@ class TestRule7WithZeroBuildingNumber(unittest.TestCase):
         """Test conversion to an list"""
         address = ["FLAT 1, HOLLY HOUSE", "OAK AVENUE", "BIDDENDEN", "ASHFORD", "TN27 8BT"]
         self.assertEqual(
-            self.address.list(), address, "Incorrect Rule 7 with 0 building number format"
+            self.address.as_list(), address, "Incorrect Rule 7 with 0 building number format"
             )
 
     def test_string(self):
         """Test conversion to a string"""
         address = "FLAT 1, HOLLY HOUSE, OAK AVENUE, BIDDENDEN, ASHFORD. TN27 8BT"
         self.assertEqual(
-            self.address.str(), address, "Incorrect Rule 7 with 0 building number format"
+            self.address.as_str(), address, "Incorrect Rule 7 with 0 building number format"
             )
 
 class TestRule7WithSubBuildingName(unittest.TestCase):
@@ -52,14 +52,14 @@ class TestRule7WithSubBuildingName(unittest.TestCase):
         """Test conversion to an list"""
         address = ["2B THE TOWER", "27 JOHN STREET", "WINCHESTER", "SO23 9AP"]
         self.assertEqual(
-            self.address.list(), address, "Incorrect Rule 7 with sub-building list format"
+            self.address.as_list(), address, "Incorrect Rule 7 with sub-building list format"
             )
 
     def test_string(self):
         """Test conversion to a string"""
         address = "2B THE TOWER, 27 JOHN STREET, WINCHESTER. SO23 9AP"
         self.assertEqual(
-            self.address.str(), address, "Incorrect Rule 7 with sub-building string format"
+            self.address.as_str(), address, "Incorrect Rule 7 with sub-building string format"
             )
 
 class TestRule7(unittest.TestCase):
@@ -80,12 +80,12 @@ class TestRule7(unittest.TestCase):
     def test_list(self):
         """Test conversion to an list"""
         address = ["BASEMENT FLAT", "VICTORIA HOUSE", "15 THE STREET", "CORYTON", "BP23 6AA"]
-        self.assertEqual(self.address.list(), address, "Incorrect Rule 7 list format")
+        self.assertEqual(self.address.as_list(), address, "Incorrect Rule 7 list format")
 
     def test_string(self):
         """Test conversion to a string"""
         address = "BASEMENT FLAT, VICTORIA HOUSE, 15 THE STREET, CORYTON. BP23 6AA"
-        self.assertEqual(self.address.str(), address, "Incorrect Rule 7 string format")
+        self.assertEqual(self.address.as_str(), address, "Incorrect Rule 7 string format")
 
 if __name__ == '__main__':
     unittest.main()

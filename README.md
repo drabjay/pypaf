@@ -22,7 +22,7 @@ address = paf.Address({
     'post_town': "HIGH WYCOMBE",
     'postcode': "HP10 8LS"
 })
-address.list() # or list(address)
+address.as_list() # or list(address)
 
 ['1-2 NURSERY LANE', 'PENN', 'HIGH WYCOMBE', 'HP10 8LS']
 ```
@@ -39,7 +39,7 @@ address = paf.Address({
     'post_town': "HIGH WYCOMBE",
     'postcode': "HP10 8LS"
 })
-address.str() # or str(address)
+address.as_str() # or str(address)
 
 '1-2 NURSERY LANE, PENN, HIGH WYCOMBE. HP10 8LS'
 ```

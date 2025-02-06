@@ -19,12 +19,12 @@ class TestRule2(unittest.TestCase):
     def test_list(self):
         """Test conversion to an list"""
         address = ["1 ACACIA AVENUE", "ABINGDON", "OX14 4PG"]
-        self.assertEqual(self.address.list(), address, "Incorrect Rule 2 list format")
+        self.assertEqual(self.address.as_list(), address, "Incorrect Rule 2 list format")
 
     def test_string(self):
         """Test conversion to a string"""
         address = "1 ACACIA AVENUE, ABINGDON. OX14 4PG"
-        self.assertEqual(self.address.str(), address, "Incorrect Rule 2 string format")
+        self.assertEqual(self.address.as_str(), address, "Incorrect Rule 2 string format")
 
 if __name__ == '__main__':
     unittest.main()

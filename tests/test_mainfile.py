@@ -34,7 +34,7 @@ class TestMainfile(unittest.TestCase):
             "GLASGOW",
             "G72 0UP"
             ]
-        self.assertEqual(self.address.list(), address, "Incorrect Mainfile list format")
+        self.assertEqual(self.address.as_list(), address, "Incorrect Mainfile list format")
 
     def test_string(self):
         """Test conversion to a string"""
@@ -49,7 +49,7 @@ class TestMainfile(unittest.TestCase):
             "GLASGOW. "
             "G72 0UP"
             )
-        self.assertEqual(self.address.str(), address, "Incorrect Mainfile string format")
+        self.assertEqual(self.address.as_str(), address, "Incorrect Mainfile string format")
 
 if __name__ == '__main__':
     unittest.main()
