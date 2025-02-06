@@ -66,5 +66,20 @@ class TestMainfile(unittest.TestCase):
             )
         self.assertEqual(self.address.as_tuple(), address, "Incorrect Mainfile tuple format")
 
+    def test_dict(self):
+        """Test conversion to a dict"""
+        address = {
+            'line_1': "SOUTH LANARKSHIRE COUNCIL",
+            'line_2': "HEAD START",
+            'line_3': "UNIT 1",
+            'line_4': "BLOCK 3",
+            'line_5': "THIRD ROAD",
+            'line_6': "BLANTYRE INDUSTRIAL ESTATE",
+            'line_7': "BLANTYRE",
+            'post_town': "GLASGOW",
+            'postcode': "G72 0UP"
+            }
+        self.assertEqual(self.address.as_dict(), address, "Incorrect Mainfile dict format")
+
 if __name__ == '__main__':
     unittest.main()

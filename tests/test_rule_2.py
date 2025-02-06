@@ -31,5 +31,10 @@ class TestRule2(unittest.TestCase):
         address = ("1 ACACIA AVENUE", "ABINGDON", "OX14 4PG")
         self.assertEqual(self.address.as_tuple(), address, "Incorrect Rule 2 tuple format")
 
+    def test_dict(self):
+        """Test conversion to a dict"""
+        address = {'line_1': "1 ACACIA AVENUE", 'post_town': "ABINGDON", 'postcode': "OX14 4PG"}
+        self.assertEqual(self.address.as_dict(), address, "Incorrect Rule 2 dict format")
+
 if __name__ == '__main__':
     unittest.main()

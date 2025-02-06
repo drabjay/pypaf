@@ -38,6 +38,18 @@ class TestRule6WithSubBuildingName(unittest.TestCase):
             self.address.as_tuple(), address, "Incorrect Rule 6 with sub-building tuple format"
             )
 
+    def test_dict(self):
+        """Test conversion to a dict"""
+        address = {
+            'line_1': "10B BARRY JACKSON TOWER",
+            'line_2': "ESTONE WALK",
+            'post_town': "BIRMINGHAM",
+            'postcode': "B6 5BA"
+            }
+        self.assertEqual(
+            self.address.as_dict(), address, "Incorrect Rule 6 with sub-building dict format"
+            )
+
 class TestRule6WithBuildingName(unittest.TestCase):
     """Test Address Rule 6 with Building Name Exception"""
 
@@ -73,6 +85,18 @@ class TestRule6WithBuildingName(unittest.TestCase):
             self.address.as_tuple(), address, "Incorrect Rule 6 w/ building tuple format"
             )
 
+    def test_dict(self):
+        """Test conversion to a dict"""
+        address = {
+            'line_1': "CARETAKERS FLAT",
+            'line_2': "110-114 HIGH STREET WEST",
+            'post_town': "BRISTOL",
+            'postcode': "BS1 2AW"
+            }
+        self.assertEqual(
+            self.address.as_dict(), address, "Incorrect Rule 6 w/ building dict format"
+            )
+
 class TestRule6(unittest.TestCase):
     """Test Address Rule 6 without Exception"""
 
@@ -101,6 +125,17 @@ class TestRule6(unittest.TestCase):
         """Test conversion to a tuple"""
         address = ("STABLES FLAT", "THE MANOR", "UPPER HILL", "HORLEY", "RH6 0HP")
         self.assertEqual(self.address.as_tuple(), address, "Incorrect Rule 6 tuple format")
+
+    def test_dict(self):
+        """Test conversion to a dict"""
+        address = {
+            'line_1': "STABLES FLAT",
+            'line_2': "THE MANOR",
+            'line_3': "UPPER HILL",
+            'post_town': "HORLEY",
+            'postcode': "RH6 0HP"
+            }
+        self.assertEqual(self.address.as_dict(), address, "Incorrect Rule 6 dict format")
 
 if __name__ == '__main__':
     unittest.main()

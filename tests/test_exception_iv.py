@@ -52,6 +52,20 @@ class TestExceptionIVUnit(unittest.TestCase):
             self.address.as_tuple(), address, "Incorrect Exception IV Unit tuple format"
             )
 
+    def test_dict(self):
+        """Test conversion to a dict"""
+        address = {
+            'line_1': "THE TAMBOURINE WAREHOUSE",
+            'line_2': "UNIT 1-3",
+            'line_3': "INDUSTRIAL ESTATE",
+            'line_4': "TAME ROAD",
+            'post_town': "LONDON",
+            'postcode': "E6 7HS"
+            }
+        self.assertEqual(
+            self.address.as_dict(), address, "Incorrect Exception IV Unit dict format"
+            )
+
 class TestExceptionIVStall(unittest.TestCase):
     """Test Address Exception IV Stall"""
 
@@ -99,6 +113,19 @@ class TestExceptionIVStall(unittest.TestCase):
             self.address.as_tuple(), address, "Incorrect Exception IV Stall tuple format"
             )
 
+    def test_dict(self):
+        """Test conversion to a dict"""
+        address = {
+            'line_1': "QUIRKY CANDLES LTD",
+            'line_2': "STALL 4",
+            'line_3': "MARKET SQUARE",
+            'post_town': "LIVERPOOL",
+            'postcode': "L8 1LH"
+            }
+        self.assertEqual(
+            self.address.as_dict(), address, "Incorrect Exception IV Stall dict format"
+            )
+
 class TestExceptionIVRearOf(unittest.TestCase):
     """Test Address Exception IV Rear Of"""
 
@@ -144,6 +171,19 @@ class TestExceptionIVRearOf(unittest.TestCase):
             )
         self.assertEqual(
             self.address.as_tuple(), address, "Incorrect Exception IV RearOf tuple format"
+            )
+
+    def test_dict(self):
+        """Test conversion to a dict"""
+        address = {
+            'line_1': "FIONA'S FLOWERS",
+            'line_2': "REAR OF 5A",
+            'line_3': "HIGH STREET",
+            'post_town': "GATESHEAD",
+            'postcode': "NE8 1BH"
+            }
+        self.assertEqual(
+            self.address.as_dict(), address, "Incorrect Exception IV RearOf dict format"
             )
 
 if __name__ == '__main__':

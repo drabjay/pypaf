@@ -32,6 +32,16 @@ class TestRule5(unittest.TestCase):
         address = ("FLAT 1", "12 LIME TREE AVENUE", "BRISTOL", "BS8 4AB")
         self.assertEqual(self.address.as_tuple(), address, "Incorrect Rule 5 tuple format")
 
+    def test_dict(self):
+        """Test conversion to a dict"""
+        address = {
+            'line_1': "FLAT 1",
+            'line_2': "12 LIME TREE AVENUE",
+            'post_town': "BRISTOL",
+            'postcode': "BS8 4AB"
+            }
+        self.assertEqual(self.address.as_dict(), address, "Incorrect Rule 5 dict format")
+
 class TestRule5WithConcatenation(unittest.TestCase):
     """Test Address Rule 5 with Concatenation"""
 
@@ -66,7 +76,19 @@ class TestRule5WithConcatenation(unittest.TestCase):
         """Test conversion to a tuple"""
         address = ("12A HIGH STREET NORTH", "COOMBE BISSETT", "SALISBURY", "SP5 4NA")
         self.assertEqual(
-            self.address.as_tuple(), address, "Incorrect Rule 5 with concatenate list format"
+            self.address.as_tuple(), address, "Incorrect Rule 5 with concatenate tuple format"
+            )
+
+    def test_dict(self):
+        """Test conversion to a dict"""
+        address = {
+            'line_1': "12A HIGH STREET NORTH",
+            'line_2': "COOMBE BISSETT",
+            'post_town': "SALISBURY",
+            'postcode': "SP5 4NA"
+            }
+        self.assertEqual(
+            self.address.as_dict(), address, "Incorrect Rule 5 with concatenate dict format"
             )
 
 if __name__ == '__main__':

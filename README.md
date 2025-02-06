@@ -61,6 +61,28 @@ address.as_str() # or str(address)
 '1-2 NURSERY LANE, PENN, HIGH WYCOMBE. HP10 8LS'
 ```
 
+Or as a dictionary:
+
+```python
+import paf
+address = paf.Address({
+    'building_name': "1-2",
+    'thoroughfare_name': "NURSERY",
+    'thoroughfare_descriptor': "LANE",
+    'dependent_locality': "PENN",
+    'post_town': "HIGH WYCOMBE",
+    'postcode': "HP10 8LS"
+})
+address.as_dict()
+
+{
+    'line_1': "1-2 NURSERY LANE",
+    'line_2': "PENN",
+    'post_town': "HIGH WYCOMBE",
+    'postcode': "HP10 8LS"
+}
+```
+
 ## Development
 
 After checking out the repo, run `pytest` to run the tests.

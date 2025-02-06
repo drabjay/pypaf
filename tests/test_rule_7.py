@@ -40,6 +40,19 @@ class TestRule7WithZeroBuildingNumber(unittest.TestCase):
             self.address.as_tuple(), address, "Incorrect Rule 7 with 0 building number tuple format"
             )
 
+    def test_dict(self):
+        """Test conversion to a dict"""
+        address = {
+            'line_1': "FLAT 1, HOLLY HOUSE",
+            'line_2': "OAK AVENUE",
+            'line_3': "BIDDENDEN",
+            'post_town': "ASHFORD",
+            'postcode': "TN27 8BT"
+            }
+        self.assertEqual(
+            self.address.as_dict(), address, "Incorrect Rule 7 with 0 building number dict format"
+            )
+
 class TestRule7WithSubBuildingName(unittest.TestCase):
     """Test Address Rule 7 with Sub-Building Name Exception"""
 
@@ -76,6 +89,18 @@ class TestRule7WithSubBuildingName(unittest.TestCase):
             self.address.as_tuple(), address, "Incorrect Rule 7 with sub-building tuple format"
             )
 
+    def test_dict(self):
+        """Test conversion to a dict"""
+        address = {
+            'line_1': "2B THE TOWER",
+            'line_2': "27 JOHN STREET",
+            'post_town': "WINCHESTER",
+            'postcode': "SO23 9AP"
+            }
+        self.assertEqual(
+            self.address.as_dict(), address, "Incorrect Rule 7 with sub-building dict format"
+            )
+
 class TestRule7(unittest.TestCase):
     """Test Address Rule 7 without Exception"""
 
@@ -105,6 +130,17 @@ class TestRule7(unittest.TestCase):
         """Test conversion to a tuple"""
         address = ("BASEMENT FLAT", "VICTORIA HOUSE", "15 THE STREET", "CORYTON", "BP23 6AA")
         self.assertEqual(self.address.as_tuple(), address, "Incorrect Rule 7 tuple format")
+
+    def test_dict(self):
+        """Test conversion to a dict"""
+        address = {
+            'line_1': "BASEMENT FLAT",
+            'line_2': "VICTORIA HOUSE",
+            'line_3': "15 THE STREET",
+            'post_town': "CORYTON",
+            'postcode': "BP23 6AA"
+            }
+        self.assertEqual(self.address.as_dict(), address, "Incorrect Rule 7 dict format")
 
 if __name__ == '__main__':
     unittest.main()

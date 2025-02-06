@@ -31,5 +31,10 @@ class TestExceptionIII(unittest.TestCase):
         address = ("K PORTLAND ROAD", "DORKING", "RH4 1EW")
         self.assertEqual(self.address.as_tuple(), address, "Incorrect Exception III tuple format")
 
+    def test_dict(self):
+        """Test conversion to a dict"""
+        address = {'line_1': "K PORTLAND ROAD", 'post_town': "DORKING", 'postcode': "RH4 1EW"}
+        self.assertEqual(self.address.as_dict(), address, "Incorrect Exception III dict format")
+
 if __name__ == '__main__':
     unittest.main()

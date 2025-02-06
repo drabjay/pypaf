@@ -32,5 +32,15 @@ class TestRule4(unittest.TestCase):
         address = ("VICTORIA HOUSE", "15 THE STREET", "CHRISTCHURCH", "BH23 6AA")
         self.assertEqual(self.address.as_tuple(), address, "Incorrect Rule 4 tuple format")
 
+    def test_dict(self):
+        """Test conversion to a dict"""
+        address = {
+            'line_1': "VICTORIA HOUSE",
+            'line_2': "15 THE STREET",
+            'post_town': "CHRISTCHURCH",
+            'postcode': "BH23 6AA"
+            }
+        self.assertEqual(self.address.as_dict(), address, "Incorrect Rule 4 dict format")
+
 if __name__ == '__main__':
     unittest.main()

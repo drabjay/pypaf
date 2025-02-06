@@ -45,3 +45,14 @@ class Address(ImmutableMixin, LineableMixin):
     def as_tuple(self):
         """Return Address as tuple of strings"""
         return tuple(self)
+
+    def as_dict(self):
+        """Return Address as dictionary of strings"""
+        address = {}
+        for counter, line in enumerate(getattr(self, 'optional_lines'), 1):
+            address[f"line_{counter}"] = line
+        if not self.is_empty('post_town'):
+            address['post_town'] = getattr(self, 'post_town')
+        if not self.is_empty('postcode'):
+            address['postcode'] = getattr(self, 'postcode')
+        return address

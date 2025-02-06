@@ -39,6 +39,18 @@ class TestRule3WithBuildingName(unittest.TestCase):
             self.address.as_tuple(), address, "Incorrect Rule 3 w/ building tuple format"
             )
 
+    def test_dict(self):
+        """Test conversion to a dict"""
+        address = {
+            'line_1': "1A SEASTONE COURT",
+            'line_2': "STATION ROAD",
+            'post_town': "HOLT",
+            'postcode': "NR25 7HG"
+            }
+        self.assertEqual(
+            self.address.as_dict(), address, "Incorrect Rule 3 w/ building dict format"
+            )
+
 class TestRule3WithoutBuildingName(unittest.TestCase):
     """Test Address Rule 3 without Building Name Exception"""
 
@@ -71,6 +83,18 @@ class TestRule3WithoutBuildingName(unittest.TestCase):
         address = ("THE MANOR", "UPPER ROAD", "HORLEY", "RH6 0HP")
         self.assertEqual(
             self.address.as_tuple(), address, "Incorrect Rule 3 w/o building tuple format"
+            )
+
+    def test_dict(self):
+        """Test conversion to a dict"""
+        address = {
+            'line_1': "THE MANOR",
+            'line_2': "UPPER ROAD",
+            'post_town': "HORLEY",
+            'postcode': "RH6 0HP"
+            }
+        self.assertEqual(
+            self.address.as_dict(), address, "Incorrect Rule 3 w/o building tuple format"
             )
 
 class TestRule3WithSplit(unittest.TestCase):
@@ -118,6 +142,19 @@ class TestRule3WithSplit(unittest.TestCase):
             self.address.as_tuple(), address, "Incorrect Rule 3 with split tuple format"
             )
 
+    def test_dict(self):
+        """Test conversion to a dict"""
+        address = {
+            'line_1': "S D ALCOTT FLORISTS",
+            'line_2': "FLOWER HOUSE",
+            'line_3': "189A PYE GREEN ROAD",
+            'post_town': "CANNOCK",
+            'postcode': "WS11 5SB"
+            }
+        self.assertEqual(
+            self.address.as_dict(), address, "Incorrect Rule 3 with split dict format"
+            )
+
 class TestRule3WithoutSplit(unittest.TestCase):
     """Test Address Rule 3 without Split Exception"""
 
@@ -147,6 +184,19 @@ class TestRule3WithoutSplit(unittest.TestCase):
         address = ("JAMES VILLA HOLIDAYS", "CENTRE 30", "ST LAURENCE AVENUE", "GRAFTON", "ME16 0LP")
         self.assertEqual(
             self.address.as_tuple(), address, "Incorrect Rule 3 w/o split tuple format"
+            )
+
+    def test_dict(self):
+        """Test conversion to a dict"""
+        address = {
+            'line_1': "JAMES VILLA HOLIDAYS",
+            'line_2': "CENTRE 30",
+            'line_3': "ST LAURENCE AVENUE",
+            'post_town': "GRAFTON",
+            'postcode': "ME16 0LP"
+            }
+        self.assertEqual(
+            self.address.as_dict(), address, "Incorrect Rule 3 w/o split dict format"
             )
 
 if __name__ == '__main__':
