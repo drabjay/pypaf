@@ -31,6 +31,13 @@ class TestRule6WithSubBuildingName(unittest.TestCase):
             self.address.as_str(), address, "Incorrect Rule 6 with sub-building string format"
             )
 
+    def test_tuple(self):
+        """Test conversion to a tuple"""
+        address = ("10B BARRY JACKSON TOWER", "ESTONE WALK", "BIRMINGHAM", "B6 5BA")
+        self.assertEqual(
+            self.address.as_tuple(), address, "Incorrect Rule 6 with sub-building tuple format"
+            )
+
 class TestRule6WithBuildingName(unittest.TestCase):
     """Test Address Rule 6 with Building Name Exception"""
 
@@ -59,6 +66,13 @@ class TestRule6WithBuildingName(unittest.TestCase):
             self.address.as_str(), address, "Incorrect Rule 6 w/ building string format"
             )
 
+    def test_tuple(self):
+        """Test conversion to a tuple"""
+        address = ("CARETAKERS FLAT", "110-114 HIGH STREET WEST", "BRISTOL", "BS1 2AW")
+        self.assertEqual(
+            self.address.as_tuple(), address, "Incorrect Rule 6 w/ building tuple format"
+            )
+
 class TestRule6(unittest.TestCase):
     """Test Address Rule 6 without Exception"""
 
@@ -82,6 +96,11 @@ class TestRule6(unittest.TestCase):
         """Test conversion to a string"""
         address = "STABLES FLAT, THE MANOR, UPPER HILL, HORLEY. RH6 0HP"
         self.assertEqual(self.address.as_str(), address, "Incorrect Rule 6 string format")
+
+    def test_tuple(self):
+        """Test conversion to a tuple"""
+        address = ("STABLES FLAT", "THE MANOR", "UPPER HILL", "HORLEY", "RH6 0HP")
+        self.assertEqual(self.address.as_tuple(), address, "Incorrect Rule 6 tuple format")
 
 if __name__ == '__main__':
     unittest.main()

@@ -25,5 +25,10 @@ class TestRule1(unittest.TestCase):
         address = "LEDA ENGINEERING LTD, APPLEFORD, ABINGDON. OX14 4PG"
         self.assertEqual(self.address.as_str(), address, "Incorrect Rule 1 string format")
 
+    def test_tuple(self):
+        """Test conversion to a tuple"""
+        address = ("LEDA ENGINEERING LTD", "APPLEFORD", "ABINGDON", "OX14 4PG")
+        self.assertEqual(self.address.as_tuple(), address, "Incorrect Rule 1 tuple format")
+
 if __name__ == '__main__':
     unittest.main()

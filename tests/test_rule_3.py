@@ -32,6 +32,13 @@ class TestRule3WithBuildingName(unittest.TestCase):
             self.address.as_str(), address, "Incorrect Rule 3 w/ building string format"
             )
 
+    def test_tuple(self):
+        """Test conversion to a tuple"""
+        address = ("1A SEASTONE COURT", "STATION ROAD", "HOLT", "NR25 7HG")
+        self.assertEqual(
+            self.address.as_tuple(), address, "Incorrect Rule 3 w/ building tuple format"
+            )
+
 class TestRule3WithoutBuildingName(unittest.TestCase):
     """Test Address Rule 3 without Building Name Exception"""
 
@@ -57,6 +64,13 @@ class TestRule3WithoutBuildingName(unittest.TestCase):
         address = "THE MANOR, UPPER ROAD, HORLEY. RH6 0HP"
         self.assertEqual(
             self.address.as_str(), address, "Incorrect Rule 3 w/ building string format"
+            )
+
+    def test_tuple(self):
+        """Test conversion to a tuple"""
+        address = ("THE MANOR", "UPPER ROAD", "HORLEY", "RH6 0HP")
+        self.assertEqual(
+            self.address.as_tuple(), address, "Incorrect Rule 3 w/o building tuple format"
             )
 
 class TestRule3WithSplit(unittest.TestCase):
@@ -91,6 +105,19 @@ class TestRule3WithSplit(unittest.TestCase):
             self.address.as_str(), address, "Incorrect Rule 3 with split string format"
             )
 
+    def test_tuple(self):
+        """Test conversion to a tuple"""
+        address = (
+            "S D ALCOTT FLORISTS",
+            "FLOWER HOUSE",
+            "189A PYE GREEN ROAD",
+            "CANNOCK",
+            "WS11 5SB"
+            )
+        self.assertEqual(
+            self.address.as_tuple(), address, "Incorrect Rule 3 with split tuple format"
+            )
+
 class TestRule3WithoutSplit(unittest.TestCase):
     """Test Address Rule 3 without Split Exception"""
 
@@ -114,6 +141,13 @@ class TestRule3WithoutSplit(unittest.TestCase):
         """Test conversion to a string"""
         address = "JAMES VILLA HOLIDAYS, CENTRE 30, ST LAURENCE AVENUE, GRAFTON. ME16 0LP"
         self.assertEqual(self.address.as_str(), address, "Incorrect Rule 3 w/o split string format")
+
+    def test_tuple(self):
+        """Test conversion to a tuple"""
+        address = ("JAMES VILLA HOLIDAYS", "CENTRE 30", "ST LAURENCE AVENUE", "GRAFTON", "ME16 0LP")
+        self.assertEqual(
+            self.address.as_tuple(), address, "Incorrect Rule 3 w/o split tuple format"
+            )
 
 if __name__ == '__main__':
     unittest.main()

@@ -51,5 +51,20 @@ class TestMainfile(unittest.TestCase):
             )
         self.assertEqual(self.address.as_str(), address, "Incorrect Mainfile string format")
 
+    def test_tuple(self):
+        """Test conversion to a tuple"""
+        address = (
+            "SOUTH LANARKSHIRE COUNCIL",
+            "HEAD START",
+            "UNIT 1",
+            "BLOCK 3",
+            "THIRD ROAD",
+            "BLANTYRE INDUSTRIAL ESTATE",
+            "BLANTYRE",
+            "GLASGOW",
+            "G72 0UP"
+            )
+        self.assertEqual(self.address.as_tuple(), address, "Incorrect Mainfile tuple format")
+
 if __name__ == '__main__':
     unittest.main()

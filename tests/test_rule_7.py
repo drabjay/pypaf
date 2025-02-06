@@ -23,14 +23,21 @@ class TestRule7WithZeroBuildingNumber(unittest.TestCase):
         """Test conversion to an list"""
         address = ["FLAT 1, HOLLY HOUSE", "OAK AVENUE", "BIDDENDEN", "ASHFORD", "TN27 8BT"]
         self.assertEqual(
-            self.address.as_list(), address, "Incorrect Rule 7 with 0 building number format"
+            self.address.as_list(), address, "Incorrect Rule 7 with 0 building number list format"
             )
 
     def test_string(self):
         """Test conversion to a string"""
         address = "FLAT 1, HOLLY HOUSE, OAK AVENUE, BIDDENDEN, ASHFORD. TN27 8BT"
         self.assertEqual(
-            self.address.as_str(), address, "Incorrect Rule 7 with 0 building number format"
+            self.address.as_str(), address, "Incorrect Rule 7 with 0 building number string format"
+            )
+
+    def test_tuple(self):
+        """Test conversion to a tuple"""
+        address = ("FLAT 1, HOLLY HOUSE", "OAK AVENUE", "BIDDENDEN", "ASHFORD", "TN27 8BT")
+        self.assertEqual(
+            self.address.as_tuple(), address, "Incorrect Rule 7 with 0 building number tuple format"
             )
 
 class TestRule7WithSubBuildingName(unittest.TestCase):
@@ -62,6 +69,13 @@ class TestRule7WithSubBuildingName(unittest.TestCase):
             self.address.as_str(), address, "Incorrect Rule 7 with sub-building string format"
             )
 
+    def test_tuple(self):
+        """Test conversion to a tuple"""
+        address = ("2B THE TOWER", "27 JOHN STREET", "WINCHESTER", "SO23 9AP")
+        self.assertEqual(
+            self.address.as_tuple(), address, "Incorrect Rule 7 with sub-building tuple format"
+            )
+
 class TestRule7(unittest.TestCase):
     """Test Address Rule 7 without Exception"""
 
@@ -86,6 +100,11 @@ class TestRule7(unittest.TestCase):
         """Test conversion to a string"""
         address = "BASEMENT FLAT, VICTORIA HOUSE, 15 THE STREET, CORYTON. BP23 6AA"
         self.assertEqual(self.address.as_str(), address, "Incorrect Rule 7 string format")
+
+    def test_tuple(self):
+        """Test conversion to a tuple"""
+        address = ("BASEMENT FLAT", "VICTORIA HOUSE", "15 THE STREET", "CORYTON", "BP23 6AA")
+        self.assertEqual(self.address.as_tuple(), address, "Incorrect Rule 7 tuple format")
 
 if __name__ == '__main__':
     unittest.main()

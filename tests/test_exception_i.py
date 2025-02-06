@@ -27,5 +27,10 @@ class TestExceptionI(unittest.TestCase):
         address = "1-2 NURSERY LANE, PENN, HIGH WYCOMBE. HP10 8LS"
         self.assertEqual(self.address.as_str(), address, "Incorrect Exception I string format")
 
+    def test_tuple(self):
+        """Test conversion to a tuple"""
+        address = ("1-2 NURSERY LANE", "PENN", "HIGH WYCOMBE", "HP10 8LS")
+        self.assertEqual(self.address.as_tuple(), address, "Incorrect Exception I tuple format")
+
 if __name__ == '__main__':
     unittest.main()

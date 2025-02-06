@@ -24,5 +24,10 @@ class TestPoBox(unittest.TestCase):
         address = "PO BOX 61, FAREHAM. PO14 1UX"
         self.assertEqual(self.address.as_str(), address, "Incorrect PO Box string format")
 
+    def test_tuple(self):
+        """Test conversion to a tuple"""
+        address = ("PO BOX 61", "FAREHAM", "PO14 1UX")
+        self.assertEqual(self.address.as_tuple(), address, "Incorrect PO Box tuple format")
+
 if __name__ == '__main__':
     unittest.main()

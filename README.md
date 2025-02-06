@@ -10,7 +10,7 @@ Install it from PyPI:
 
 ## Usage
 
-May be used to format the PAF Address elements as an array of strings:
+May be used to format the PAF Address elements as a list of strings:
 
 ```python
 import paf
@@ -25,6 +25,23 @@ address = paf.Address({
 address.as_list() # or list(address)
 
 ['1-2 NURSERY LANE', 'PENN', 'HIGH WYCOMBE', 'HP10 8LS']
+```
+
+Or as a tuple of strings:
+
+```python
+import paf
+address = paf.Address({
+    'building_name': "1-2",
+    'thoroughfare_name': "NURSERY",
+    'thoroughfare_descriptor': "LANE",
+    'dependent_locality': "PENN",
+    'post_town': "HIGH WYCOMBE",
+    'postcode': "HP10 8LS"
+})
+address.as_tuple() # or tuple(address)
+
+('1-2 NURSERY LANE', 'PENN', 'HIGH WYCOMBE', 'HP10 8LS')
 ```
 
 Or as a single string:

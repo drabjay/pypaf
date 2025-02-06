@@ -41,3 +41,7 @@ class Address(ImmutableMixin, LineableMixin):
     def as_list(self):
         """Return Address as list of strings"""
         return list(self)
+
+    def as_tuple(self):
+        """Return Address as tuple of strings"""
+        return tuple(self)
