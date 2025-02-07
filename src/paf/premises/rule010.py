@@ -1,6 +1,5 @@
 """Rule 3"""
 
-import re
 from .common import Common
 
 class Rule010(Common):
@@ -25,17 +24,23 @@ class Rule010(Common):
         """Returns if building name should be split"""
         return(
             self.is_exception('building_name_last_word') and
-                not re.match(r'^\d+$', self.building_name_last_word) and
-                not self.is_known_building_type
+                not self.building_name_last_word.isdigit() and
+                not self.is_exception_iv
             )
 
     @property
-    def is_known_building_type(self):
-        """Returns if building name starts with a known building type"""
-        return self.building_name_but_last_word in [
-            "BACK OF", "BLOCK", "BLOCKS", "BUILDING", "MAISONETTE", "MAISONETTES", "REAR OF",
-            "SHOP", "SHOPS", "STALL", "STALLS", "SUITE", "SUITES", "UNIT", "UNITS"
-            ]
+    def is_exception_iv(self):
+        """Returns if building name starts with a known building type and
+           ends with numeric range or numeric alpha suffix"""
+        return (
+            # Do not include suffix check as does not account for building names such as BLOCK B
+            # re.match(r'^\d', self.building_name_last_word) and
+                self.building_name_but_last_word in [
+                    "BACK OF", "BLOCK", "BLOCKS", "BUILDING", "MAISONETTE", "MAISONETTES",
+                    "REAR OF", "SHOP", "SHOPS", "STALL", "STALLS", "SUITE", "SUITES",
+                    "UNIT", "UNITS"
+                    ]
+            )
 
     @property
     def building_name_last_word(self):

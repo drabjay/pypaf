@@ -29,9 +29,25 @@ class Common:
         """Returns sub-building name and building name"""
         return self._concatenate(['sub_building_name', 'building_name'])
 
+    def is_exception_i(self, attr):
+        """Returns if first and last characters are numeric"""
+        return re.fullmatch(r'^[\d](?:.*[\d])?$', getattr(self, attr, None))
+
+    def is_exception_ii(self, attr):
+        """Returns if first and penultimate characters are numeric, and last is alphabetic"""
+        return re.fullmatch(r'^([\d][a-zA-Z]|[\d].*?[\d][a-zA-Z])$', getattr(self, attr, None))
+
+    def is_exception_iii(self, attr):
+        """Returns if single non-whitespace character"""
+        return re.fullmatch(r'^[^ \t\r\n\v\f]$', getattr(self, attr, None))
+
     def is_exception(self, attr):
         """Returns if value is an exception"""
-        return re.match(r'^(.|[\d][a-zA-Z]|[\d].*?[\d][a-zA-Z]?)$', getattr(self, attr, None))
+        return(
+            self.is_exception_i(attr) or
+                self.is_exception_ii(attr) or
+                self.is_exception_iii(attr)
+            )
 
     def _concatenate(self, keys, concatenator=' '):
         """Returns specified attributes concatenated with a specified separator"""

@@ -186,5 +186,61 @@ class TestExceptionIVRearOf(unittest.TestCase):
             self.address.as_dict(), address, "Incorrect Exception IV RearOf dict format"
             )
 
+class TestExceptionIVBlock(unittest.TestCase):
+    """Test Address Exception IV BLock"""
+
+    def setUp(self):
+        """Set up Address instance"""
+        self.address = paf.Address({
+            'building_name': "BLOCK B",
+            'thoroughfare_name': "WELLESLEY",
+            'thoroughfare_descriptor': "ROAD",
+            'post_town': "CROYDON",
+            'postcode': "CR9 1AT"
+            })
+
+    def test_list(self):
+        """Test conversion to an list"""
+        address = [
+            "BLOCK B",
+            "WELLESLEY ROAD",
+            "CROYDON",
+            "CR9 1AT"
+            ]
+        self.assertEqual(
+            self.address.as_list(), address, "Incorrect Exception IV BLock list format"
+            )
+
+    def test_string(self):
+        """Test conversion to a string"""
+        address = "BLOCK B, WELLESLEY ROAD, CROYDON. CR9 1AT"
+        self.assertEqual(
+            self.address.as_str(), address, "Incorrect Exception IV BLock string format"
+            )
+
+    def test_tuple(self):
+        """Test conversion to a tuple"""
+        address = (
+            "BLOCK B",
+            "WELLESLEY ROAD",
+            "CROYDON",
+            "CR9 1AT"
+            )
+        self.assertEqual(
+            self.address.as_tuple(), address, "Incorrect Exception IV BLock tuple format"
+            )
+
+    def test_dict(self):
+        """Test conversion to a dict"""
+        address = {
+            'line_1': "BLOCK B",
+            'line_2': "WELLESLEY ROAD",
+            'post_town': "CROYDON",
+            'postcode': "CR9 1AT"
+            }
+        self.assertEqual(
+            self.address.as_dict(), address, "Incorrect Exception IV BLock dict format"
+            )
+
 if __name__ == '__main__':
     unittest.main()
