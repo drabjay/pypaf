@@ -30,5 +30,10 @@ class TestEmpty(unittest.TestCase):
         address = {}
         self.assertEqual(self.address.as_dict(), address, "Incorrect empty dict format")
 
+    def test_premises(self):
+        """Test premises"""
+        premises = {}
+        self.assertEqual(self.address.premises(), premises, "Incorrect empty premises")
+
 if __name__ == '__main__':
     unittest.main()

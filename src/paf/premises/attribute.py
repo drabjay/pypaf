@@ -1,40 +1,36 @@
 """Attribute Mixin"""
 
 class AttributeMixin():
-    """Address elements and derived properties"""
+    """Premises elements and derived properties"""
 
     @classmethod
     @property
-    def premises_attrs(cls):
-        """Returns Paf premises elements"""
-        return (
-            'organisation_name', 'department_name',
-                'sub_building_name', 'building_name', 'building_number',
-                'po_box_number'
-            )
+    def organisation_attrs(cls):
+        """Returns Paf organisation elements"""
+        return ('organisation_name', 'department_name')
 
     @classmethod
     @property
-    def post_attrs(cls):
-        """Returns Paf post elements"""
-        return ('post_town', 'postcode')
+    def building_attrs(cls):
+        """Returns Paf building elements"""
+        return ('sub_building_name', 'building_name', 'building_number')
 
     @classmethod
     @property
     def other_attrs(cls):
         """Returns Paf other elements"""
-        return ('concatenation_indicator', 'udprn')
+        return ('po_box_number', 'concatenation_indicator')
 
     @classmethod
     @property
     def attrs(cls):
-        """Returns all Paf address elements"""
+        """Returns all Paf premises elements"""
         return(
-            cls.premises_attrs
+            cls.organisation_attrs
+                + cls.building_attrs
                 + cls.dependent_thoroughfare_attrs
                 + cls.thoroughfare_attrs
                 + cls.locality_attrs
-                + cls.post_attrs
                 + cls.other_attrs
             )
 

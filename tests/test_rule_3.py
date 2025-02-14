@@ -51,6 +51,15 @@ class TestRule3WithBuildingName(unittest.TestCase):
             self.address.as_dict(), address, "Incorrect Rule 3 w/ building dict format"
             )
 
+    def test_premises(self):
+        """Test premises"""
+        premises = {
+            'premises_name': 'SEASTONE COURT',
+            'sub_premises_number': 1,
+            'sub_premises_suffix': 'A'
+            }
+        self.assertEqual(self.address.premises(), premises, "Incorrect Rule 3 w/ building premises")
+
 class TestRule3WithoutBuildingName(unittest.TestCase):
     """Test Address Rule 3 without Building Name Exception"""
 
@@ -95,6 +104,13 @@ class TestRule3WithoutBuildingName(unittest.TestCase):
             }
         self.assertEqual(
             self.address.as_dict(), address, "Incorrect Rule 3 w/o building tuple format"
+            )
+
+    def test_premises(self):
+        """Test premises"""
+        premises = {'premises_name': 'THE MANOR'}
+        self.assertEqual(
+            self.address.premises(), premises, "Incorrect Rule 3 w/o building premises"
             )
 
 class TestRule3WithSplit(unittest.TestCase):
@@ -155,6 +171,15 @@ class TestRule3WithSplit(unittest.TestCase):
             self.address.as_dict(), address, "Incorrect Rule 3 with split dict format"
             )
 
+    def test_premises(self):
+        """Test premises"""
+        premises = {
+            'premises_number': 189,
+            'premises_suffix': 'A',
+            'premises_name': 'FLOWER HOUSE'
+            }
+        self.assertEqual(self.address.premises(), premises, "Incorrect Rule 3 with split premises")
+
 class TestRule3WithoutSplit(unittest.TestCase):
     """Test Address Rule 3 without Split Exception"""
 
@@ -198,6 +223,11 @@ class TestRule3WithoutSplit(unittest.TestCase):
         self.assertEqual(
             self.address.as_dict(), address, "Incorrect Rule 3 w/o split dict format"
             )
+
+    def test_premises(self):
+        """Test premises"""
+        premises = {'premises_name': 'CENTRE 30'}
+        self.assertEqual(self.address.premises(), premises, "Incorrect Rule 3 w/o split premises")
 
 if __name__ == '__main__':
     unittest.main()

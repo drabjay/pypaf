@@ -36,5 +36,10 @@ class TestRule2(unittest.TestCase):
         address = {'line_1': "1 ACACIA AVENUE", 'post_town': "ABINGDON", 'postcode': "OX14 4PG"}
         self.assertEqual(self.address.as_dict(), address, "Incorrect Rule 2 dict format")
 
+    def test_premises(self):
+        """Test premises"""
+        premises = {'premises_number': 1}
+        self.assertEqual(self.address.premises(), premises, "Incorrect empty premises")
+
 if __name__ == '__main__':
     unittest.main()

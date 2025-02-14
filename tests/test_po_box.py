@@ -34,5 +34,10 @@ class TestPoBox(unittest.TestCase):
         address = {'line_1': "PO BOX 61", 'post_town': "FAREHAM", 'postcode': "PO14 1UX"}
         self.assertEqual(self.address.as_dict(), address, "Incorrect PO Box dict format")
 
+    def test_premises(self):
+        """Test premises"""
+        premises = {'premises_type': 'PO BOX', 'premises_number': 61}
+        self.assertEqual(self.address.premises(), premises, "Incorrect PO Box premises")
+
 if __name__ == '__main__':
     unittest.main()

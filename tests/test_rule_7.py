@@ -53,6 +53,17 @@ class TestRule7WithZeroBuildingNumber(unittest.TestCase):
             self.address.as_dict(), address, "Incorrect Rule 7 with 0 building number dict format"
             )
 
+    def test_premises(self):
+        """Test premises"""
+        premises = {
+            'premises_name': 'HOLLY HOUSE',
+            'sub_premises_type': 'FLAT',
+            'sub_premises_number': 1
+            }
+        self.assertEqual(
+            self.address.premises(), premises, "Incorrect Rule 7 with 0 building number premises"
+            )
+
 class TestRule7WithSubBuildingName(unittest.TestCase):
     """Test Address Rule 7 with Sub-Building Name Exception"""
 
@@ -101,6 +112,18 @@ class TestRule7WithSubBuildingName(unittest.TestCase):
             self.address.as_dict(), address, "Incorrect Rule 7 with sub-building dict format"
             )
 
+    def test_premises(self):
+        """Test premises"""
+        premises = {
+            'premises_number': 27,
+            'premises_name': 'THE TOWER',
+            'sub_premises_number': 2,
+            'sub_premises_suffix': 'B'
+            }
+        self.assertEqual(
+            self.address.premises(), premises, "Incorrect Rule 7 with sub-building premises"
+            )
+
 class TestRule7(unittest.TestCase):
     """Test Address Rule 7 without Exception"""
 
@@ -141,6 +164,15 @@ class TestRule7(unittest.TestCase):
             'postcode': "BP23 6AA"
             }
         self.assertEqual(self.address.as_dict(), address, "Incorrect Rule 7 dict format")
+
+    def test_premises(self):
+        """Test premises"""
+        premises = {
+            'premises_number': 15,
+            'premises_name': 'VICTORIA HOUSE',
+            'sub_premises_name': 'BASEMENT FLAT'
+            }
+        self.assertEqual(self.address.premises(), premises, "Incorrect Rule 7 premises")
 
 if __name__ == '__main__':
     unittest.main()

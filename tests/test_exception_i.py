@@ -42,5 +42,10 @@ class TestExceptionI(unittest.TestCase):
             }
         self.assertEqual(self.address.as_dict(), address, "Incorrect Exception I dict format")
 
+    def test_premises(self):
+        """Test premises"""
+        premises = {'premises_number': 1, 'premises_suffix': '-2'}
+        self.assertEqual(self.address.premises(), premises, "Incorrect Exception I premises")
+
 if __name__ == '__main__':
     unittest.main()

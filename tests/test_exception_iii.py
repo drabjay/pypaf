@@ -36,5 +36,10 @@ class TestExceptionIII(unittest.TestCase):
         address = {'line_1': "K PORTLAND ROAD", 'post_town': "DORKING", 'postcode': "RH4 1EW"}
         self.assertEqual(self.address.as_dict(), address, "Incorrect Exception III dict format")
 
+    def test_premises(self):
+        """Test premises"""
+        premises = {'premises_name': 'K'}
+        self.assertEqual(self.address.premises(), premises, "Incorrect Exception III premises")
+
 if __name__ == '__main__':
     unittest.main()

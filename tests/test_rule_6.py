@@ -50,6 +50,17 @@ class TestRule6WithSubBuildingName(unittest.TestCase):
             self.address.as_dict(), address, "Incorrect Rule 6 with sub-building dict format"
             )
 
+    def test_premises(self):
+        """Test premises"""
+        premises = {
+            'premises_name': 'BARRY JACKSON TOWER',
+            'sub_premises_number': 10,
+            'sub_premises_suffix': 'B'
+            }
+        self.assertEqual(
+            self.address.premises(), premises, "Incorrect Rule 6 w/ sub-building premises"
+            )
+
 class TestRule6WithBuildingName(unittest.TestCase):
     """Test Address Rule 6 with Building Name Exception"""
 
@@ -97,6 +108,15 @@ class TestRule6WithBuildingName(unittest.TestCase):
             self.address.as_dict(), address, "Incorrect Rule 6 w/ building dict format"
             )
 
+    def test_premises(self):
+        """Test premises"""
+        premises = {
+            'premises_number': 110,
+            'premises_suffix': '-114',
+            'sub_premises_name': 'CARETAKERS FLAT'
+            }
+        self.assertEqual(self.address.premises(), premises, "Incorrect Rule 6 w/ building premises")
+
 class TestRule6(unittest.TestCase):
     """Test Address Rule 6 without Exception"""
 
@@ -136,6 +156,11 @@ class TestRule6(unittest.TestCase):
             'postcode': "RH6 0HP"
             }
         self.assertEqual(self.address.as_dict(), address, "Incorrect Rule 6 dict format")
+
+    def test_premises(self):
+        """Test premises"""
+        premises = {'premises_name': 'THE MANOR', 'sub_premises_name': 'STABLES FLAT'}
+        self.assertEqual(self.address.premises(), premises, "Incorrect Rule 6 premises")
 
 if __name__ == '__main__':
     unittest.main()

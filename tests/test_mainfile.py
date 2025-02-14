@@ -81,5 +81,15 @@ class TestMainfile(unittest.TestCase):
             }
         self.assertEqual(self.address.as_dict(), address, "Incorrect Mainfile dict format")
 
+    def test_premises(self):
+        """Test premises"""
+        premises = {
+            'premises_type': 'BLOCK',
+            'premises_number': 3,
+            'sub_premises_type': 'UNIT',
+            'sub_premises_number': 1
+            }
+        self.assertEqual(self.address.premises(), premises, "Incorrect Mainfile premises")
+
 if __name__ == '__main__':
     unittest.main()

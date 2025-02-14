@@ -42,6 +42,11 @@ class TestRule5(unittest.TestCase):
             }
         self.assertEqual(self.address.as_dict(), address, "Incorrect Rule 5 dict format")
 
+    def test_premises(self):
+        """Test premises"""
+        premises = {'premises_number': 12, 'sub_premises_type': 'FLAT', 'sub_premises_number': 1}
+        self.assertEqual(self.address.premises(), premises, "Incorrect Rule 5 premises")
+
 class TestRule5WithConcatenation(unittest.TestCase):
     """Test Address Rule 5 with Concatenation"""
 
@@ -89,6 +94,13 @@ class TestRule5WithConcatenation(unittest.TestCase):
             }
         self.assertEqual(
             self.address.as_dict(), address, "Incorrect Rule 5 with concatenate dict format"
+            )
+
+    def test_premises(self):
+        """Test premises"""
+        premises = {'premises_number' : 12, 'sub_premises_name': 'A'}
+        self.assertEqual(
+            self.address.premises(), premises, "Incorrect Rule 5 with concatenate premises"
             )
 
 if __name__ == '__main__':

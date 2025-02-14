@@ -42,5 +42,10 @@ class TestRule4(unittest.TestCase):
             }
         self.assertEqual(self.address.as_dict(), address, "Incorrect Rule 4 dict format")
 
+    def test_premises(self):
+        """Test premises"""
+        premises = {'premises_number': 15, 'premises_name': 'VICTORIA HOUSE'}
+        self.assertEqual(self.address.premises(), premises, "Incorrect Rule 4 premises")
+
 if __name__ == '__main__':
     unittest.main()
