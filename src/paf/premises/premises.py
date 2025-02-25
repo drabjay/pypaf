@@ -73,6 +73,11 @@ class Premises(
         return self._concatenate(('sub_building_name', 'building_name'), ', ')
 
     @property
+    def sub_name_and_thoroughfare_or_locality(self):
+        """Returns sub-building number and first thoroughfare or locality"""
+        return self._concatenate(('sub_building_name', 'first_thoroughfare_or_locality'))
+
+    @property
     def building_name_but_last_word(self):
         """Returns all but last word of the building name"""
         return self.but_last_word('building_name')

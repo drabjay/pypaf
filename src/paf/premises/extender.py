@@ -4,6 +4,7 @@ import sys
 from .rule000 import Rule000 # pylint: disable=unused-import
 from .rule001 import Rule001 # pylint: disable=unused-import
 from .rule010 import Rule010 # pylint: disable=unused-import
+from .rule100 import Rule100 # pylint: disable=unused-import
 from .rule011 import Rule011 # pylint: disable=unused-import
 from .rule101 import Rule101 # pylint: disable=unused-import
 from .rule110 import Rule110 # pylint: disable=unused-import
