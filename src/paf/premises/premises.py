@@ -15,7 +15,7 @@ class Premises(
     """PAF Address Premises class"""
 
     @attribute_init
-    def __init__(self, *args): # pylint: disable=unused-argument
+    def __init__(self, *args, **kwargs): # pylint: disable=unused-argument
         """Initialise Premises elements"""
         self.extend()
 

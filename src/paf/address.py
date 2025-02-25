@@ -12,9 +12,9 @@ class Address(ImmutableMixin, AttributeMixin, ThoroughfareLocalityMixin, Lineabl
     """Main PAF Address class"""
 
     @attribute_init
-    def __init__(self, *args):
+    def __init__(self, *args, **kwargs):
         """Initialise Address elements"""
-        object.__setattr__(self, 'premises', Premises(*args))
+        object.__setattr__(self, 'premises', Premises(*args, **kwargs))
 
     def __repr__(self):
         """Return full representation of an Address"""
