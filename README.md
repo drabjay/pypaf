@@ -12,7 +12,7 @@ Install it from PyPI:
 
 ### Formatting
 
-May be used to format the PAF Address elements as a list of strings:
+May be used to format the PAF Address elements - passed as either a single dictionary or as a series of keyword arguments - as a list of strings:
 
 ```python
 import paf
@@ -33,14 +33,14 @@ Or as a tuple of strings:
 
 ```python
 import paf
-address = paf.Address({
-    'building_name': "1-2",
-    'thoroughfare_name': "NURSERY",
-    'thoroughfare_descriptor': "LANE",
-    'dependent_locality': "PENN",
-    'post_town': "HIGH WYCOMBE",
-    'postcode': "HP10 8LS"
-})
+address = paf.Address(
+    building_name="1-2",
+    thoroughfare_name="NURSERY",
+    thoroughfare_descriptor="LANE",
+    dependent_locality="PENN",
+    post_town="HIGH WYCOMBE",
+    postcode="HP10 8LS"
+)
 address.as_tuple() # or tuple(address)
 
 ('1-2 NURSERY LANE', 'PENN', 'HIGH WYCOMBE', 'HP10 8LS')
@@ -67,14 +67,14 @@ Or as a dictionary:
 
 ```python
 import paf
-address = paf.Address({
-    'building_name': "1-2",
-    'thoroughfare_name': "NURSERY",
-    'thoroughfare_descriptor': "LANE",
-    'dependent_locality': "PENN",
-    'post_town': "HIGH WYCOMBE",
-    'postcode': "HP10 8LS"
-})
+address = paf.Address(
+    building_name="1-2",
+    thoroughfare_name="NURSERY",
+    thoroughfare_descriptor="LANE",
+    dependent_locality="PENN",
+    post_town="HIGH WYCOMBE",
+    postcode="HP10 8LS"
+)
 address.as_dict()
 
 {
@@ -132,15 +132,15 @@ If there is no `sub_building_name` element and the `dependent_thoroughfare` elem
 
 ```python
 import paf
-self.address = paf.Address({
-    'building_name': "1A",
-    'dependent_thoroughfare_name': "SEASTONE",
-    'dependent_thoroughfare_descriptor': "COURT",
-    'thoroughfare_name': "STATION",
-    'thoroughfare_descriptor': "ROAD",
-    'post_town': "HOLT",
-    'postcode': "NR25 7HG"
-})
+self.address = paf.Address(
+    building_name="1A",
+    dependent_thoroughfare_name="SEASTONE",
+    dependent_thoroughfare_descriptor="COURT",
+    thoroughfare_name="STATION",
+    thoroughfare_descriptor="ROAD",
+    post_town="HOLT",
+    postcode="NR25 7HG"
+)
 address.premises()
 
 {
