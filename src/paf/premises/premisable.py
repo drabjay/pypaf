@@ -2,6 +2,7 @@
 
 from .exception import ExceptionMixin
 
+
 class PremisableMixin(ExceptionMixin):
     """Returns the values for the premises properties"""
 
@@ -10,8 +11,10 @@ class PremisableMixin(ExceptionMixin):
     def premises_attrs(cls):
         """Returns derived premises elements"""
         return (
-            'premises_type', 'premises_number', 'premises_suffix', 'premises_name',
-            'sub_premises_type', 'sub_premises_number', 'sub_premises_suffix', 'sub_premises_name'
+            'premises_type', 'premises_number',
+            'premises_suffix', 'premises_name',
+            'sub_premises_type', 'sub_premises_number',
+            'sub_premises_suffix', 'sub_premises_name'
             )
 
     @property
@@ -19,7 +22,10 @@ class PremisableMixin(ExceptionMixin):
         """Returns premises number"""
         if self.has_building_number:
             return self.building_number
-        if self.is_exception('building_name') or self.is_split_exception('building_name'):
+        if (
+                self.is_exception('building_name')
+                or self.is_split_exception('building_name')
+                ):
             return self.building_name_last_word
         return ''
 
@@ -28,7 +34,10 @@ class PremisableMixin(ExceptionMixin):
         """Returns premises name"""
         if self.has_building_number:
             return self.building_name
-        if self.is_exception('building_name') or self.is_split_exception('building_name'):
+        if (
+                self.is_exception('building_name')
+                or self.is_split_exception('building_name')
+                ):
             return self.building_name_but_last_word
         return self.building_name
 

@@ -2,6 +2,7 @@
 
 from .dependent_premisable import DependentPremisableMixin
 
+
 class Rule011(DependentPremisableMixin):
     """Rule 4 processing"""
 

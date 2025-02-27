@@ -3,6 +3,7 @@
 import unittest
 import paf
 
+
 class TestRuleXWithSubBuildingName(unittest.TestCase):
     """Test Address Rule X with Sub-Building Name Exception"""
 
@@ -22,21 +23,24 @@ class TestRuleXWithSubBuildingName(unittest.TestCase):
         """Test conversion to an list"""
         address = ["30C JENNENS COURT", "JENNENS ROAD", "BIRMINGHAM", "B5 5JR"]
         self.assertEqual(
-            self.address.as_list(), address, "Incorrect Rule X w/ sub-building list format"
+            self.address.as_list(), address,
+            "Incorrect Rule X w/ sub-building list format"
             )
 
     def test_string(self):
         """Test conversion to a string"""
         address = "30C JENNENS COURT, JENNENS ROAD, BIRMINGHAM. B5 5JR"
         self.assertEqual(
-            self.address.as_str(), address, "Incorrect Rule X w/ sub-building string format"
+            self.address.as_str(), address,
+            "Incorrect Rule X w/ sub-building string format"
             )
 
     def test_tuple(self):
         """Test conversion to a tuple"""
         address = ("30C JENNENS COURT", "JENNENS ROAD", "BIRMINGHAM", "B5 5JR")
         self.assertEqual(
-            self.address.as_tuple(), address, "Incorrect Rule X w/ sub-building tuple format"
+            self.address.as_tuple(), address,
+            "Incorrect Rule X w/ sub-building tuple format"
             )
 
     def test_dict(self):
@@ -48,7 +52,8 @@ class TestRuleXWithSubBuildingName(unittest.TestCase):
             'postcode': "B5 5JR"
             }
         self.assertEqual(
-            self.address.as_dict(), address, "Incorrect Rule X w/ sub-building dict format"
+            self.address.as_dict(), address,
+            "Incorrect Rule X w/ sub-building dict format"
             )
 
     def test_premises(self):
@@ -59,8 +64,10 @@ class TestRuleXWithSubBuildingName(unittest.TestCase):
             'sub_premises_suffix': 'C'
             }
         self.assertEqual(
-            self.address.premises(), premises, "Incorrect Rule X w/ sub-building premises"
+            self.address.premises(), premises,
+            "Incorrect Rule X w/ sub-building premises"
             )
+
 
 class TestRuleXWithoutSubBuildingName(unittest.TestCase):
     """Test Address Rule X without Sub-Building Name Exception"""
@@ -78,23 +85,30 @@ class TestRuleXWithoutSubBuildingName(unittest.TestCase):
 
     def test_list(self):
         """Test conversion to an list"""
-        address = ["THE ANNEX", "ST MARYS ROAD", "BIRNAM", "DUNKELD", "PH8 0BJ"]
+        address = [
+            "THE ANNEX", "ST MARYS ROAD", "BIRNAM", "DUNKELD", "PH8 0BJ"
+            ]
         self.assertEqual(
-            self.address.as_list(), address, "Incorrect Rule X w/o sub-building list format"
+            self.address.as_list(), address,
+            "Incorrect Rule X w/o sub-building list format"
             )
 
     def test_string(self):
         """Test conversion to a string"""
         address = "THE ANNEX, ST MARYS ROAD, BIRNAM, DUNKELD. PH8 0BJ"
         self.assertEqual(
-            self.address.as_str(), address, "Incorrect Rule X w/o sub-building string format"
+            self.address.as_str(), address,
+            "Incorrect Rule X w/o sub-building string format"
             )
 
     def test_tuple(self):
         """Test conversion to a tuple"""
-        address = ("THE ANNEX", "ST MARYS ROAD", "BIRNAM", "DUNKELD", "PH8 0BJ")
+        address = (
+            "THE ANNEX", "ST MARYS ROAD", "BIRNAM", "DUNKELD", "PH8 0BJ"
+            )
         self.assertEqual(
-            self.address.as_tuple(), address, "Incorrect Rule X w/o sub-building tuple format"
+            self.address.as_tuple(), address,
+            "Incorrect Rule X w/o sub-building tuple format"
             )
 
     def test_dict(self):
@@ -107,15 +121,18 @@ class TestRuleXWithoutSubBuildingName(unittest.TestCase):
             'postcode': "PH8 0BJ"
             }
         self.assertEqual(
-            self.address.as_dict(), address, "Incorrect Rule X w/o sub-building tuple format"
+            self.address.as_dict(), address,
+            "Incorrect Rule X w/o sub-building tuple format"
             )
 
     def test_premises(self):
         """Test premises"""
         premises = {'premises_name': 'THE ANNEX'}
         self.assertEqual(
-            self.address.premises(), premises, "Incorrect Rule X w/o sub-building premises"
+            self.address.premises(), premises,
+            "Incorrect Rule X w/o sub-building premises"
             )
+
 
 if __name__ == '__main__':
     unittest.main()

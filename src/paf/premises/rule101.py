@@ -2,6 +2,7 @@
 
 from .premisable import PremisableMixin
 
+
 class Rule101(PremisableMixin):
     """Rule 5 processing"""
 

@@ -2,6 +2,7 @@
 
 from dataclasses import FrozenInstanceError
 
+
 class ImmutableMixin():
     """Prevent manipulation of object attributes"""
 

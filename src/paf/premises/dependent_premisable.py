@@ -2,6 +2,7 @@
 
 from .premisable import PremisableMixin
 
+
 class DependentPremisableMixin(PremisableMixin):
     """Returns the values for the premises properties"""
 

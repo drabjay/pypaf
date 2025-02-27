@@ -1,6 +1,6 @@
 """PAF Address"""
 
-# Tried using dataclasses.dataclass(frozen=True) decorator for immutablity but did not work"""
+# Tried dataclasses.dataclass(frozen=True) for immutablity but did not work"""
 from .initiator import attribute_init
 from .attribute import AttributeMixin
 from .immutable import ImmutableMixin
@@ -8,7 +8,11 @@ from .lineable import LineableMixin
 from .thoroughfare_locality import ThoroughfareLocalityMixin
 from .premises.premises import Premises
 
-class Address(ImmutableMixin, AttributeMixin, ThoroughfareLocalityMixin, LineableMixin):
+
+class Address(
+        ImmutableMixin, AttributeMixin, ThoroughfareLocalityMixin,
+        LineableMixin
+        ):
     """Main PAF Address class"""
 
     @attribute_init
@@ -18,7 +22,10 @@ class Address(ImmutableMixin, AttributeMixin, ThoroughfareLocalityMixin, Lineabl
 
     def __repr__(self):
         """Return full representation of an Address"""
-        args = {k: getattr(self, k) for k in list(self.attrs) if getattr(self, k, None)}
+        args = {
+            k: getattr(self, k)
+            for k in list(self.attrs) if getattr(self, k, None)
+            }
         return self.__class__.__name__ + '(' + str(args) + ')'
 
     def __str__(self):

@@ -2,6 +2,7 @@
 
 import re
 
+
 class SplitMixin():
     """Methods to extract various parts of a attribute value"""
 
@@ -53,5 +54,5 @@ class SplitMixin():
         return self.__leading_digits(str(getattr(self, attr, '')))
 
     def after_leading_digits(self, attr):
-        """Returns the characters after the leading digits from the attribute"""
+        """Returns characters after the leading digits from the attribute"""
         return self.__after_leading_digits(str(getattr(self, attr, '')))

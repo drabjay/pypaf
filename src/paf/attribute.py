@@ -1,5 +1,6 @@
 """Attribute Mixin"""
 
+
 class AttributeMixin():
     """Address elements and derived properties"""
 
@@ -9,8 +10,8 @@ class AttributeMixin():
         """Returns Paf premises elements"""
         return (
             'organisation_name', 'department_name',
-                'sub_building_name', 'building_name', 'building_number',
-                'po_box_number'
+            'sub_building_name', 'building_name', 'building_number',
+            'po_box_number'
             )
 
     @classmethod
@@ -29,13 +30,13 @@ class AttributeMixin():
     @property
     def attrs(cls):
         """Returns all Paf address elements"""
-        return(
+        return (
             cls.premises_attrs
-                + cls.dependent_thoroughfare_attrs
-                + cls.thoroughfare_attrs
-                + cls.locality_attrs
-                + cls.post_attrs
-                + cls.other_attrs
+            + cls.dependent_thoroughfare_attrs
+            + cls.thoroughfare_attrs
+            + cls.locality_attrs
+            + cls.post_attrs
+            + cls.other_attrs
             )
 
     def is_empty(self, attr):

@@ -2,6 +2,7 @@
 
 from .premisable import PremisableMixin
 
+
 class Rule100(PremisableMixin):
     """Rule X processing"""
 
@@ -9,7 +10,7 @@ class Rule100(PremisableMixin):
     def rule_attrs(self):
         """Returns premises list"""
         if self.is_exception('sub_building_name'):
-            return('sub_name_and_thoroughfare_or_locality',)
+            return ('sub_name_and_thoroughfare_or_locality',)
         return ('sub_building_name',)
 
     @property

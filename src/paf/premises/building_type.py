@@ -2,6 +2,7 @@
 
 from .split import SplitMixin
 
+
 class BuildingTypeMixin(SplitMixin):
     """Determines if a string represents a known building type"""
 
@@ -10,8 +11,11 @@ class BuildingTypeMixin(SplitMixin):
     def known_building_types(cls):
         """Returns known building types"""
         return (
-            "BACK OF", "BLOCK", "BLOCKS", "BUILDING", "MAISONETTE", "MAISONETTES", "REAR OF",
-            "SHOP", "SHOPS", "STALL", "STALLS", "SUITE", "SUITES", "UNIT", "UNITS", "PO BOX"
+            "BACK OF", "BLOCK", "BLOCKS", "BUILDING",
+            "MAISONETTE", "MAISONETTES", "REAR OF",
+            "SHOP", "SHOPS", "STALL", "STALLS",
+            "SUITE", "SUITES", "UNIT", "UNITS",
+            "PO BOX"
             )
 
     @classmethod

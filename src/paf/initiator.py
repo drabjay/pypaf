@@ -2,6 +2,7 @@
 
 import functools
 
+
 def attribute_init(func):
     """Decorator to initiate an object based on a list of attributes"""
 

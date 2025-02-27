@@ -3,6 +3,7 @@
 import unittest
 import paf
 
+
 class TestPremisesRule1(unittest.TestCase):
     """Test Premises Rule 1"""
 
@@ -20,10 +21,15 @@ class TestPremisesRule1(unittest.TestCase):
 
     def test_premises(self):
         """Test premises"""
-        premises = {'premises_name': 'INDUSTRIAL ESTATE', 'sub_premises_name': 'ACME LTD'}
+        premises = {
+            'premises_name': 'INDUSTRIAL ESTATE',
+            'sub_premises_name': 'ACME LTD'
+            }
         self.assertEqual(
-            self.address.premises(), premises, "Incorrect Rule 1 w/ Dependent Thoroughfare"
+            self.address.premises(), premises,
+            "Incorrect Rule 1 w/ Dependent Thoroughfare"
             )
+
 
 class TestPremisesRule2(unittest.TestCase):
     """Test Premises Rule 2"""
@@ -42,13 +48,18 @@ class TestPremisesRule2(unittest.TestCase):
 
     def test_premises(self):
         """Test premises"""
-        premises = {'premises_name': 'SEASTONE COURT', 'sub_premises_number': 7}
+        premises = {
+            'premises_name': 'SEASTONE COURT',
+            'sub_premises_number': 7
+            }
         self.assertEqual(
-            self.address.premises(), premises, "Incorrect Rule 2 w/ Dependent Thoroughfare"
+            self.address.premises(), premises,
+            "Incorrect Rule 2 w/ Dependent Thoroughfare"
             )
 
+
 class TestPremisesRule4(unittest.TestCase):
-    """Test Premises Rule 2"""
+    """Test Premises Rule 4"""
 
     def setUp(self):
         """Set up Address instance"""
@@ -71,8 +82,10 @@ class TestPremisesRule4(unittest.TestCase):
             'sub_premises_name': 'CARETAKERS FLAT'
             }
         self.assertEqual(
-            self.address.premises(), premises, "Incorrect Rule 4 w/ Dependent Thoroughfare"
+            self.address.premises(), premises,
+            "Incorrect Rule 4 w/ Dependent Thoroughfare"
             )
+
 
 if __name__ == '__main__':
     unittest.main()
