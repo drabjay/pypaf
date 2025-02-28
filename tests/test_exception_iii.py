@@ -7,9 +7,10 @@ import paf
 class TestExceptionIII(unittest.TestCase):
     """Test Address Exception III"""
 
-    def setUp(self):
+    @classmethod
+    def setUpClass(cls):
         """Set up Address instance"""
-        self.address = paf.Address({
+        cls.address = paf.Address({
             'building_name': "K",
             'thoroughfare_name': "PORTLAND",
             'thoroughfare_descriptor': "ROAD",

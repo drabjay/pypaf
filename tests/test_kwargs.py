@@ -7,9 +7,10 @@ import paf
 class TestKwargs(unittest.TestCase):
     """Test Address Keyword Arguments"""
 
-    def setUp(self):
+    @classmethod
+    def setUpClass(cls):
         """Set up Address instance"""
-        self.address = paf.Address(
+        cls.address = paf.Address(
             organisation_name="KATH'S CAKES",
             building_name="VICTORIA HOUSE",
             thoroughfare_name="HIGH",

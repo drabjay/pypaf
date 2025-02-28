@@ -7,9 +7,10 @@ import paf
 class TestRule5(unittest.TestCase):
     """Test Address Rule 5"""
 
-    def setUp(self):
+    @classmethod
+    def setUpClass(cls):
         """Set up Address instance"""
-        self.address = paf.Address({
+        cls.address = paf.Address({
             'sub_building_name': "FLAT 1",
             'building_number': "12",
             'thoroughfare_name': "LIME TREE",
@@ -71,9 +72,10 @@ class TestRule5(unittest.TestCase):
 class TestRule5WithConcatenation(unittest.TestCase):
     """Test Address Rule 5 with Concatenation"""
 
-    def setUp(self):
+    @classmethod
+    def setUpClass(cls):
         """Set up Address instance"""
-        self.address = paf.Address({
+        cls.address = paf.Address({
             'sub_building_name': "A",
             'building_number': "12",
             'thoroughfare_name': "HIGH",

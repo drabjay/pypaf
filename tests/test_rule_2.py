@@ -7,9 +7,10 @@ import paf
 class TestRule2(unittest.TestCase):
     """Test Address Rule 2"""
 
-    def setUp(self):
+    @classmethod
+    def setUpClass(cls):
         """Set up Address instance"""
-        self.address = paf.Address({
+        cls.address = paf.Address({
             'building_number': "1",
             'thoroughfare_name': "ACACIA",
             'thoroughfare_descriptor': "AVENUE",

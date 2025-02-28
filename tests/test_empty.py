@@ -7,9 +7,10 @@ import paf
 class TestEmpty(unittest.TestCase):
     """Test Address Exception I"""
 
-    def setUp(self):
+    @classmethod
+    def setUpClass(cls):
         """Set up Address instance"""
-        self.address = paf.Address({})
+        cls.address = paf.Address({})
 
     def test_list(self):
         """Test conversion to an list"""

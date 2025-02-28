@@ -7,9 +7,10 @@ import paf
 class TestPoBox(unittest.TestCase):
     """Test Address PO Box"""
 
-    def setUp(self):
+    @classmethod
+    def setUpClass(cls):
         """Set up Address instance"""
-        self.address = paf.Address({
+        cls.address = paf.Address({
             'po_box_number': "61",
             'post_town': "FAREHAM",
             'postcode': "PO14 1UX"

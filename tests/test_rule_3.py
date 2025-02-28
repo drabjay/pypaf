@@ -7,9 +7,10 @@ import paf
 class TestRule3WithBuildingName(unittest.TestCase):
     """Test Address Rule 3 with Building Name Exception"""
 
-    def setUp(self):
+    @classmethod
+    def setUpClass(cls):
         """Set up Address instance"""
-        self.address = paf.Address({
+        cls.address = paf.Address({
             'building_name': "1A",
             'dependent_thoroughfare_name': "SEASTONE",
             'dependent_thoroughfare_descriptor': "COURT",
@@ -72,9 +73,10 @@ class TestRule3WithBuildingName(unittest.TestCase):
 class TestRule3WithoutBuildingName(unittest.TestCase):
     """Test Address Rule 3 without Building Name Exception"""
 
-    def setUp(self):
+    @classmethod
+    def setUpClass(cls):
         """Set up Address instance"""
-        self.address = paf.Address({
+        cls.address = paf.Address({
             'building_name': "THE MANOR",
             'thoroughfare_name': "UPPER",
             'thoroughfare_descriptor': "ROAD",
@@ -131,9 +133,10 @@ class TestRule3WithoutBuildingName(unittest.TestCase):
 class TestRule3WithSplit(unittest.TestCase):
     """Test Address Rule 3 with Split Exception"""
 
-    def setUp(self):
+    @classmethod
+    def setUpClass(cls):
         """Set up Address instance"""
-        self.address = paf.Address({
+        cls.address = paf.Address({
             'organisation_name': "S D ALCOTT FLORISTS",
             'building_name': "FLOWER HOUSE 189A",
             'thoroughfare_name': "PYE GREEN",
@@ -214,9 +217,10 @@ class TestRule3WithSplit(unittest.TestCase):
 class TestRule3WithoutSplit(unittest.TestCase):
     """Test Address Rule 3 without Split Exception"""
 
-    def setUp(self):
+    @classmethod
+    def setUpClass(cls):
         """Set up Address instance"""
-        self.address = paf.Address({
+        cls.address = paf.Address({
             'organisation_name': "JAMES VILLA HOLIDAYS",
             'building_name': "CENTRE 30",
             'thoroughfare_name': "ST LAURENCE",

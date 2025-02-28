@@ -7,9 +7,10 @@ import paf
 class TestRule7WithZeroBuildingNumber(unittest.TestCase):
     """Test Address Rule 7 with a 0 Building Number"""
 
-    def setUp(self):
+    @classmethod
+    def setUpClass(cls):
         """Set up Address instance"""
-        self.address = paf.Address({
+        cls.address = paf.Address({
             'sub_building_name': "FLAT 1",
             'building_name': "HOLLY HOUSE",
             'building_number': "0",
@@ -93,9 +94,10 @@ class TestRule7WithZeroBuildingNumber(unittest.TestCase):
 class TestRule7WithSubBuildingName(unittest.TestCase):
     """Test Address Rule 7 with Sub-Building Name Exception"""
 
-    def setUp(self):
+    @classmethod
+    def setUpClass(cls):
         """Set up Address instance"""
-        self.address = paf.Address({
+        cls.address = paf.Address({
             'sub_building_name': "2B",
             'building_name': "THE TOWER",
             'building_number': "27",
@@ -159,9 +161,10 @@ class TestRule7WithSubBuildingName(unittest.TestCase):
 class TestRule7(unittest.TestCase):
     """Test Address Rule 7 without Exception"""
 
-    def setUp(self):
+    @classmethod
+    def setUpClass(cls):
         """Set up Address instance"""
-        self.address = paf.Address({
+        cls.address = paf.Address({
             'sub_building_name': "BASEMENT FLAT",
             'building_name': "VICTORIA HOUSE",
             'building_number': "15",

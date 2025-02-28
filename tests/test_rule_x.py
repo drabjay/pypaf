@@ -7,9 +7,10 @@ import paf
 class TestRuleXWithSubBuildingName(unittest.TestCase):
     """Test Address Rule X with Sub-Building Name Exception"""
 
-    def setUp(self):
+    @classmethod
+    def setUpClass(cls):
         """Set up Address instance"""
-        self.address = paf.Address({
+        cls.address = paf.Address({
             'sub_building_name': "30C",
             'dependent_thoroughfare_name': "JENNENS",
             'dependent_thoroughfare_descriptor': "COURT",
@@ -72,9 +73,10 @@ class TestRuleXWithSubBuildingName(unittest.TestCase):
 class TestRuleXWithoutSubBuildingName(unittest.TestCase):
     """Test Address Rule X without Sub-Building Name Exception"""
 
-    def setUp(self):
+    @classmethod
+    def setUpClass(cls):
         """Set up Address instance"""
-        self.address = paf.Address({
+        cls.address = paf.Address({
             'sub_building_name': "THE ANNEX",
             'thoroughfare_name': "ST MARYS",
             'thoroughfare_descriptor': "ROAD",

@@ -7,9 +7,10 @@ import paf
 class TestPremisesRule1(unittest.TestCase):
     """Test Premises Rule 1"""
 
-    def setUp(self):
+    @classmethod
+    def setUpClass(cls):
         """Set up Address instance"""
-        self.address = paf.Address({
+        cls.address = paf.Address({
             'organisation_name': "ACME LTD",
             'dependent_thoroughfare_name': "INDUSTRIAL",
             'dependent_thoroughfare_descriptor': "ESTATE",
@@ -34,9 +35,10 @@ class TestPremisesRule1(unittest.TestCase):
 class TestPremisesRule2(unittest.TestCase):
     """Test Premises Rule 2"""
 
-    def setUp(self):
+    @classmethod
+    def setUpClass(cls):
         """Set up Address instance"""
-        self.address = paf.Address({
+        cls.address = paf.Address({
             'building_number': "7",
             'dependent_thoroughfare_name': "SEASTONE",
             'dependent_thoroughfare_descriptor': "COURT",
@@ -61,9 +63,10 @@ class TestPremisesRule2(unittest.TestCase):
 class TestPremisesRule4(unittest.TestCase):
     """Test Premises Rule 4"""
 
-    def setUp(self):
+    @classmethod
+    def setUpClass(cls):
         """Set up Address instance"""
-        self.address = paf.Address({
+        cls.address = paf.Address({
             'building_name': "CARETAKERS FLAT",
             'building_number': "99",
             'dependent_thoroughfare_name': "SEASTONE",

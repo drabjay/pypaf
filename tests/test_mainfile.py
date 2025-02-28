@@ -7,9 +7,10 @@ import paf
 class TestMainfile(unittest.TestCase):
     """Test Address Mainfile"""
 
-    def setUp(self):
+    @classmethod
+    def setUpClass(cls):
         """Set up Address instance"""
-        self.address = paf.Address({
+        cls.address = paf.Address({
             'organisation_name': "SOUTH LANARKSHIRE COUNCIL",
             'department_name': "HEAD START",
             'sub_building_name': "UNIT 1",

@@ -7,9 +7,10 @@ import paf
 class TestExceptionIVUnit(unittest.TestCase):
     """Test Address Exception IV Unit"""
 
-    def setUp(self):
+    @classmethod
+    def setUpClass(cls):
         """Set up Address instance"""
-        self.address = paf.Address({
+        cls.address = paf.Address({
             'organisation_name': "THE TAMBOURINE WAREHOUSE",
             'building_name': "UNIT 1-3",
             'dependent_thoroughfare_name': "INDUSTRIAL",
@@ -97,9 +98,10 @@ class TestExceptionIVUnit(unittest.TestCase):
 class TestExceptionIVStall(unittest.TestCase):
     """Test Address Exception IV Stall"""
 
-    def setUp(self):
+    @classmethod
+    def setUpClass(cls):
         """Set up Address instance"""
-        self.address = paf.Address({
+        cls.address = paf.Address({
             'organisation_name': "QUIRKY CANDLES LTD",
             'building_name': "STALL 4",
             'thoroughfare_name': "MARKET",
@@ -176,9 +178,10 @@ class TestExceptionIVStall(unittest.TestCase):
 class TestExceptionIVRearOf(unittest.TestCase):
     """Test Address Exception IV Rear Of"""
 
-    def setUp(self):
+    @classmethod
+    def setUpClass(cls):
         """Set up Address instance"""
-        self.address = paf.Address({
+        cls.address = paf.Address({
             'organisation_name': "FIONA'S FLOWERS",
             'building_name': "REAR OF 5A",
             'thoroughfare_name': "HIGH",
@@ -259,9 +262,10 @@ class TestExceptionIVRearOf(unittest.TestCase):
 class TestExceptionIVBlock(unittest.TestCase):
     """Test Address Exception IV BLock"""
 
-    def setUp(self):
+    @classmethod
+    def setUpClass(cls):
         """Set up Address instance"""
-        self.address = paf.Address({
+        cls.address = paf.Address({
             'building_name': "BLOCK B",
             'thoroughfare_name': "WELLESLEY",
             'thoroughfare_descriptor': "ROAD",

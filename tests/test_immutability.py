@@ -8,9 +8,10 @@ import paf
 class TestImmutability(unittest.TestCase):
     """Test Immutable"""
 
-    def setUp(self):
+    @classmethod
+    def setUpClass(cls):
         """Set up Address instance"""
-        self.address = paf.Address({
+        cls.address = paf.Address({
             'building_number': "16",
             'thoroughfare_name': "VIXEN",
             'thoroughfare_descriptor': "ROAD",
