@@ -28,10 +28,7 @@ class TestKwargs(unittest.TestCase):
             "PORTSMOUTH",
             "PO1 1AF"
             ]
-        self.assertEqual(
-            self.address.as_list(), address,
-            "Incorrect Kwargs list format"
-            )
+        self.assertEqual(self.address.as_list(), address, "Incorrect Kwargs list format")
 
     def test_string(self):
         """Test conversion to a string"""
@@ -42,10 +39,7 @@ class TestKwargs(unittest.TestCase):
             "PORTSMOUTH. "
             "PO1 1AF"
             )
-        self.assertEqual(
-            self.address.as_str(), address,
-            "Incorrect Kwargs string format"
-            )
+        self.assertEqual(self.address.as_str(), address, "Incorrect Kwargs string format")
 
     def test_tuple(self):
         """Test conversion to a tuple"""
@@ -56,10 +50,7 @@ class TestKwargs(unittest.TestCase):
             "PORTSMOUTH",
             "PO1 1AF"
             )
-        self.assertEqual(
-            self.address.as_tuple(), address,
-            "Incorrect Kwargs tuple format"
-            )
+        self.assertEqual(self.address.as_tuple(), address, "Incorrect Kwargs tuple format")
 
     def test_dict(self):
         """Test conversion to a dict"""
@@ -70,18 +61,12 @@ class TestKwargs(unittest.TestCase):
             'post_town': "PORTSMOUTH",
             'postcode': "PO1 1AF"
             }
-        self.assertEqual(
-            self.address.as_dict(), address,
-            "Incorrect Kwargs dict format"
-            )
+        self.assertEqual(self.address.as_dict(), address, "Incorrect Kwargs dict format")
 
     def test_premises(self):
         """Test premises"""
         premises = {'premises_name': 'VICTORIA HOUSE'}
-        self.assertEqual(
-            self.address.premises(), premises,
-            "Incorrect Kwargs premises"
-            )
+        self.assertEqual(self.address.premises(), premises, "Incorrect Kwargs premises")
 
 
 if __name__ == '__main__':

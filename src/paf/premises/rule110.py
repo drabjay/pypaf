@@ -18,7 +18,4 @@ class Rule110(PremisableMixin):
     @property
     def includes_first_thoroughfare_or_locality(self):
         """Returns if premises includes first thoroughfare or locality"""
-        return (
-            (not self.is_exception('sub_building_name'))
-            and self.is_exception('building_name')
-            )
+        return (not self.is_exception('sub_building_name')) and self.is_exception('building_name')

@@ -27,8 +27,7 @@ class TestPremisesRule1(unittest.TestCase):
             'sub_premises_name': 'ACME LTD'
             }
         self.assertEqual(
-            self.address.premises(), premises,
-            "Incorrect Rule 1 w/ Dependent Thoroughfare"
+            self.address.premises(), premises, "Incorrect Rule 1 w/ Dependent Thoroughfare"
             )
 
 
@@ -55,8 +54,7 @@ class TestPremisesRule2(unittest.TestCase):
             'sub_premises_number': 7
             }
         self.assertEqual(
-            self.address.premises(), premises,
-            "Incorrect Rule 2 w/ Dependent Thoroughfare"
+            self.address.premises(), premises, "Incorrect Rule 2 w/ Dependent Thoroughfare"
             )
 
 
@@ -85,8 +83,7 @@ class TestPremisesRule4(unittest.TestCase):
             'sub_premises_name': 'CARETAKERS FLAT'
             }
         self.assertEqual(
-            self.address.premises(), premises,
-            "Incorrect Rule 4 w/ Dependent Thoroughfare"
+            self.address.premises(), premises, "Incorrect Rule 4 w/ Dependent Thoroughfare"
             )
 
 

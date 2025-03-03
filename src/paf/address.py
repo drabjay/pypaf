@@ -9,10 +9,7 @@ from .thoroughfare_locality import ThoroughfareLocalityMixin
 from .premises.premises import Premises
 
 
-class Address(
-        ImmutableMixin, AttributeMixin, ThoroughfareLocalityMixin,
-        LineableMixin
-        ):
+class Address(ImmutableMixin, AttributeMixin, ThoroughfareLocalityMixin, LineableMixin):
     """Main PAF Address class"""
 
     @attribute_init
@@ -22,10 +19,7 @@ class Address(
 
     def __repr__(self):
         """Return full representation of an Address"""
-        args = {
-            k: getattr(self, k)
-            for k in list(self.attrs) if getattr(self, k, None)
-            }
+        args = {k: getattr(self, k) for k in list(self.attrs) if getattr(self, k, None)}
         return self.__class__.__name__ + '(' + str(args) + ')'
 
     def __str__(self):

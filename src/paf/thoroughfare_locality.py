@@ -8,10 +8,7 @@ class ThoroughfareLocalityMixin():
     @property
     def dependent_thoroughfare_attrs(cls):
         """Returns Paf dependent thoroughfare elements"""
-        return (
-            'dependent_thoroughfare_name',
-            'dependent_thoroughfare_descriptor'
-            )
+        return ('dependent_thoroughfare_name', 'dependent_thoroughfare_descriptor')
 
     @classmethod
     @property
@@ -35,29 +32,18 @@ class ThoroughfareLocalityMixin():
     def thoroughfares_and_localities(self):
         """Returns thoroughfares and localities list"""
         attrs = self.thoroughfare_and_locality_attrs
-        return [
-            getattr(self, k)
-            for k in attrs
-            if not self.is_used_or_empty(k)
-            ]
+        return [getattr(self, k) for k in attrs if not self.is_used_or_empty(k)]
 
     @property
     def dependent_thoroughfare(self):
         """Returns dependent thoroughfare"""
         return ' '.join(
-            filter(None, [
-                getattr(self, k, None)
-                for k in self.dependent_thoroughfare_attrs
-                ])
-            )
+            filter(None, [getattr(self, k, None) for k in self.dependent_thoroughfare_attrs]))
 
     @property
     def thoroughfare(self):
         """Returns thoroughfare"""
-        return ' '.join(filter(None, [
-            getattr(self, k, None)
-            for k in self.thoroughfare_attrs
-            ]))
+        return ' '.join(filter(None, [getattr(self, k, None) for k in self.thoroughfare_attrs]))
 
     @property
     def first_thoroughfare_or_locality_attr(self):

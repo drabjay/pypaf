@@ -17,18 +17,10 @@ class ExtenderMixin():
     @property
     def rule(self):
         """Returns premises rule class"""
-        rule = ''.join([
-            '0'
-            if self.is_empty(k) else '1'
-            for k in self.building_attrs
-            ])
+        rule = ''.join(['0' if self.is_empty(k) else '1' for k in self.building_attrs])
         return getattr(sys.modules[__name__], 'Rule' + rule)
 
     def extend(self):
         """Dynamically extends instance with appropriate rule"""
         base_cls = self.__class__
-        object.__setattr__(
-            self,
-            '__class__',
-            type(base_cls.__name__, (base_cls, self.rule), {})
-            )
+        object.__setattr__(self, '__class__', type(base_cls.__name__, (base_cls, self.rule), {}))

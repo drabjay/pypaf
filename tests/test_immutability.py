@@ -26,24 +26,15 @@ class TestImmutability(unittest.TestCase):
 
     def test_setattr(self):
         """Test setting new attribute"""
-        self.assertRaises(
-            FrozenInstanceError,
-            setattr, self.address, 'building_name', "THE HOUSE"
-            )
+        self.assertRaises(FrozenInstanceError, setattr, self.address, 'building_name', "THE HOUSE")
 
     def test_resetattr(self):
         """Test re-setting existing attribute"""
-        self.assertRaises(
-            FrozenInstanceError,
-            setattr, self.address, 'building_number', "20"
-            )
+        self.assertRaises(FrozenInstanceError, setattr, self.address, 'building_number', "20")
 
     def test_delattr(self):
         """Test deleting attribute"""
-        self.assertRaises(
-            FrozenInstanceError,
-            delattr, self.address, 'post_town'
-            )
+        self.assertRaises(FrozenInstanceError, delattr, self.address, 'post_town')
 
 
 if __name__ == '__main__':

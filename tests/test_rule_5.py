@@ -22,26 +22,17 @@ class TestRule5(unittest.TestCase):
     def test_list(self):
         """Test conversion to an list"""
         address = ["FLAT 1", "12 LIME TREE AVENUE", "BRISTOL", "BS8 4AB"]
-        self.assertEqual(
-            self.address.as_list(), address,
-            "Incorrect Rule 5 list format"
-            )
+        self.assertEqual(self.address.as_list(), address, "Incorrect Rule 5 list format")
 
     def test_string(self):
         """Test conversion to a string"""
         address = "FLAT 1, 12 LIME TREE AVENUE, BRISTOL. BS8 4AB"
-        self.assertEqual(
-            self.address.as_str(), address,
-            "Incorrect Rule 5 string format"
-            )
+        self.assertEqual(self.address.as_str(), address, "Incorrect Rule 5 string format")
 
     def test_tuple(self):
         """Test conversion to a tuple"""
         address = ("FLAT 1", "12 LIME TREE AVENUE", "BRISTOL", "BS8 4AB")
-        self.assertEqual(
-            self.address.as_tuple(), address,
-            "Incorrect Rule 5 tuple format"
-            )
+        self.assertEqual(self.address.as_tuple(), address, "Incorrect Rule 5 tuple format")
 
     def test_dict(self):
         """Test conversion to a dict"""
@@ -51,10 +42,7 @@ class TestRule5(unittest.TestCase):
             'post_town': "BRISTOL",
             'postcode': "BS8 4AB"
             }
-        self.assertEqual(
-            self.address.as_dict(), address,
-            "Incorrect Rule 5 dict format"
-            )
+        self.assertEqual(self.address.as_dict(), address, "Incorrect Rule 5 dict format")
 
     def test_premises(self):
         """Test premises"""
@@ -63,10 +51,7 @@ class TestRule5(unittest.TestCase):
             'sub_premises_type': 'FLAT',
             'sub_premises_number': 1
             }
-        self.assertEqual(
-            self.address.premises(), premises,
-            "Incorrect Rule 5 premises"
-            )
+        self.assertEqual(self.address.premises(), premises, "Incorrect Rule 5 premises")
 
 
 class TestRule5WithConcatenation(unittest.TestCase):
@@ -95,16 +80,14 @@ class TestRule5WithConcatenation(unittest.TestCase):
             "SP5 4NA"
             ]
         self.assertEqual(
-            self.address.as_list(), address,
-            "Incorrect Rule 5 with concatenate list format"
+            self.address.as_list(), address, "Incorrect Rule 5 with concatenate list format"
             )
 
     def test_string(self):
         """Test conversion to a string"""
         address = "12A HIGH STREET NORTH, COOMBE BISSETT, SALISBURY. SP5 4NA"
         self.assertEqual(
-            self.address.as_str(), address,
-            "Incorrect Rule 5 with concatenate string format"
+            self.address.as_str(), address, "Incorrect Rule 5 with concatenate string format"
             )
 
     def test_tuple(self):
@@ -116,8 +99,7 @@ class TestRule5WithConcatenation(unittest.TestCase):
             "SP5 4NA"
             )
         self.assertEqual(
-            self.address.as_tuple(), address,
-            "Incorrect Rule 5 with concatenate tuple format"
+            self.address.as_tuple(), address, "Incorrect Rule 5 with concatenate tuple format"
             )
 
     def test_dict(self):
@@ -129,16 +111,14 @@ class TestRule5WithConcatenation(unittest.TestCase):
             'postcode': "SP5 4NA"
             }
         self.assertEqual(
-            self.address.as_dict(), address,
-            "Incorrect Rule 5 with concatenate dict format"
+            self.address.as_dict(), address, "Incorrect Rule 5 with concatenate dict format"
             )
 
     def test_premises(self):
         """Test premises"""
         premises = {'premises_number': 12, 'sub_premises_name': 'A'}
         self.assertEqual(
-            self.address.premises(), premises,
-            "Incorrect Rule 5 with concatenate premises"
+            self.address.premises(), premises, "Incorrect Rule 5 with concatenate premises"
             )
 
 

@@ -32,8 +32,7 @@ class TestExceptionIVUnit(unittest.TestCase):
             "E6 7HS"
             ]
         self.assertEqual(
-            self.address.as_list(), address,
-            "Incorrect Exception IV Unit list format"
+            self.address.as_list(), address, "Incorrect Exception IV Unit list format"
             )
 
     def test_string(self):
@@ -62,8 +61,7 @@ class TestExceptionIVUnit(unittest.TestCase):
             "E6 7HS"
             )
         self.assertEqual(
-            self.address.as_tuple(), address,
-            "Incorrect Exception IV Unit tuple format"
+            self.address.as_tuple(), address, "Incorrect Exception IV Unit tuple format"
             )
 
     def test_dict(self):
@@ -90,8 +88,7 @@ class TestExceptionIVUnit(unittest.TestCase):
             'sub_premises_suffix': '-3'
             }
         self.assertEqual(
-            self.address.premises(), premises,
-            "Incorrect Exception IV Unit premises"
+            self.address.premises(), premises, "Incorrect Exception IV Unit premises"
             )
 
 
@@ -120,8 +117,7 @@ class TestExceptionIVStall(unittest.TestCase):
             "L8 1LH"
             ]
         self.assertEqual(
-            self.address.as_list(), address,
-            "Incorrect Exception IV Stall list format"
+            self.address.as_list(), address, "Incorrect Exception IV Stall list format"
             )
 
     def test_string(self):
@@ -134,8 +130,7 @@ class TestExceptionIVStall(unittest.TestCase):
             "L8 1LH"
             )
         self.assertEqual(
-            self.address.as_str(), address,
-            "Incorrect Exception IV Stall string format"
+            self.address.as_str(), address, "Incorrect Exception IV Stall string format"
             )
 
     def test_tuple(self):
@@ -148,8 +143,7 @@ class TestExceptionIVStall(unittest.TestCase):
             "L8 1LH"
             )
         self.assertEqual(
-            self.address.as_tuple(), address,
-            "Incorrect Exception IV Stall tuple format"
+            self.address.as_tuple(), address, "Incorrect Exception IV Stall tuple format"
             )
 
     def test_dict(self):
@@ -162,16 +156,14 @@ class TestExceptionIVStall(unittest.TestCase):
             'postcode': "L8 1LH"
             }
         self.assertEqual(
-            self.address.as_dict(), address,
-            "Incorrect Exception IV Stall dict format"
+            self.address.as_dict(), address, "Incorrect Exception IV Stall dict format"
             )
 
     def test_premises(self):
         """Test premises"""
         premises = {'premises_type': 'STALL', 'premises_number': 4}
         self.assertEqual(
-            self.address.premises(), premises,
-            "Incorrect Exception IV Stall premises"
+            self.address.premises(), premises, "Incorrect Exception IV Stall premises"
             )
 
 
@@ -200,8 +192,7 @@ class TestExceptionIVRearOf(unittest.TestCase):
             "NE8 1BH"
             ]
         self.assertEqual(
-            self.address.as_list(), address,
-            "Incorrect Exception IV RearOf list format"
+            self.address.as_list(), address, "Incorrect Exception IV RearOf list format"
             )
 
     def test_string(self):
@@ -214,8 +205,7 @@ class TestExceptionIVRearOf(unittest.TestCase):
             "NE8 1BH"
             )
         self.assertEqual(
-            self.address.as_str(), address,
-            "Incorrect Exception IV RearOf string format"
+            self.address.as_str(), address, "Incorrect Exception IV RearOf string format"
             )
 
     def test_tuple(self):
@@ -228,8 +218,7 @@ class TestExceptionIVRearOf(unittest.TestCase):
             "NE8 1BH"
             )
         self.assertEqual(
-            self.address.as_tuple(), address,
-            "Incorrect Exception IV RearOf tuple format"
+            self.address.as_tuple(), address, "Incorrect Exception IV RearOf tuple format"
             )
 
     def test_dict(self):
@@ -242,8 +231,7 @@ class TestExceptionIVRearOf(unittest.TestCase):
             'postcode': "NE8 1BH"
             }
         self.assertEqual(
-            self.address.as_dict(), address,
-            "Incorrect Exception IV RearOf dict format"
+            self.address.as_dict(), address, "Incorrect Exception IV RearOf dict format"
             )
 
     def test_premises(self):
@@ -254,8 +242,7 @@ class TestExceptionIVRearOf(unittest.TestCase):
             'premises_suffix': 'A'
             }
         self.assertEqual(
-            self.address.premises(), premises,
-            "Incorrect Exception IV RearOf premises"
+            self.address.premises(), premises, "Incorrect Exception IV RearOf premises"
             )
 
 
@@ -282,16 +269,14 @@ class TestExceptionIVBlock(unittest.TestCase):
             "CR9 1AT"
             ]
         self.assertEqual(
-            self.address.as_list(), address,
-            "Incorrect Exception IV Block list format"
+            self.address.as_list(), address, "Incorrect Exception IV Block list format"
             )
 
     def test_string(self):
         """Test conversion to a string"""
         address = "BLOCK B, WELLESLEY ROAD, CROYDON. CR9 1AT"
         self.assertEqual(
-            self.address.as_str(), address,
-            "Incorrect Exception IV Block string format"
+            self.address.as_str(), address, "Incorrect Exception IV Block string format"
             )
 
     def test_tuple(self):
@@ -303,8 +288,7 @@ class TestExceptionIVBlock(unittest.TestCase):
             "CR9 1AT"
             )
         self.assertEqual(
-            self.address.as_tuple(), address,
-            "Incorrect Exception IV Block tuple format"
+            self.address.as_tuple(), address, "Incorrect Exception IV Block tuple format"
             )
 
     def test_dict(self):
@@ -316,16 +300,14 @@ class TestExceptionIVBlock(unittest.TestCase):
             'postcode': "CR9 1AT"
             }
         self.assertEqual(
-            self.address.as_dict(), address,
-            "Incorrect Exception IV Block dict format"
+            self.address.as_dict(), address, "Incorrect Exception IV Block dict format"
             )
 
     def test_premises(self):
         """Test premises"""
         premises = {'premises_type': 'BLOCK', 'premises_suffix': 'B'}
         self.assertEqual(
-            self.address.premises(), premises,
-            "Incorrect Exception IV Block premises"
+            self.address.premises(), premises, "Incorrect Exception IV Block premises"
             )
 
 

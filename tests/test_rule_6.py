@@ -28,16 +28,14 @@ class TestRule6WithSubBuildingName(unittest.TestCase):
             "B6 5BA"
             ]
         self.assertEqual(
-            self.address.as_list(), address,
-            "Incorrect Rule 6 with sub-building list format"
+            self.address.as_list(), address, "Incorrect Rule 6 with sub-building list format"
             )
 
     def test_string(self):
         """Test conversion to a string"""
         address = "10B BARRY JACKSON TOWER, ESTONE WALK, BIRMINGHAM. B6 5BA"
         self.assertEqual(
-            self.address.as_str(), address,
-            "Incorrect Rule 6 with sub-building string format"
+            self.address.as_str(), address, "Incorrect Rule 6 with sub-building string format"
             )
 
     def test_tuple(self):
@@ -49,8 +47,7 @@ class TestRule6WithSubBuildingName(unittest.TestCase):
             "B6 5BA"
             )
         self.assertEqual(
-            self.address.as_tuple(), address,
-            "Incorrect Rule 6 with sub-building tuple format"
+            self.address.as_tuple(), address, "Incorrect Rule 6 with sub-building tuple format"
             )
 
     def test_dict(self):
@@ -62,8 +59,7 @@ class TestRule6WithSubBuildingName(unittest.TestCase):
             'postcode': "B6 5BA"
             }
         self.assertEqual(
-            self.address.as_dict(), address,
-            "Incorrect Rule 6 with sub-building dict format"
+            self.address.as_dict(), address, "Incorrect Rule 6 with sub-building dict format"
             )
 
     def test_premises(self):
@@ -74,8 +70,7 @@ class TestRule6WithSubBuildingName(unittest.TestCase):
             'sub_premises_suffix': 'B'
             }
         self.assertEqual(
-            self.address.premises(), premises,
-            "Incorrect Rule 6 w/ sub-building premises"
+            self.address.premises(), premises, "Incorrect Rule 6 w/ sub-building premises"
             )
 
 
@@ -103,16 +98,14 @@ class TestRule6WithBuildingName(unittest.TestCase):
             "BS1 2AW"
             ]
         self.assertEqual(
-            self.address.as_list(), address,
-            "Incorrect Rule 6 w/ building list format"
+            self.address.as_list(), address, "Incorrect Rule 6 w/ building list format"
             )
 
     def test_string(self):
         """Test conversion to a string"""
         address = "CARETAKERS FLAT, 110-114 HIGH STREET WEST, BRISTOL. BS1 2AW"
         self.assertEqual(
-            self.address.as_str(), address,
-            "Incorrect Rule 6 w/ building string format"
+            self.address.as_str(), address, "Incorrect Rule 6 w/ building string format"
             )
 
     def test_tuple(self):
@@ -124,8 +117,7 @@ class TestRule6WithBuildingName(unittest.TestCase):
             "BS1 2AW"
             )
         self.assertEqual(
-            self.address.as_tuple(), address,
-            "Incorrect Rule 6 w/ building tuple format"
+            self.address.as_tuple(), address, "Incorrect Rule 6 w/ building tuple format"
             )
 
     def test_dict(self):
@@ -137,8 +129,7 @@ class TestRule6WithBuildingName(unittest.TestCase):
             'postcode': "BS1 2AW"
             }
         self.assertEqual(
-            self.address.as_dict(), address,
-            "Incorrect Rule 6 w/ building dict format"
+            self.address.as_dict(), address, "Incorrect Rule 6 w/ building dict format"
             )
 
     def test_premises(self):
@@ -149,8 +140,7 @@ class TestRule6WithBuildingName(unittest.TestCase):
             'sub_premises_name': 'CARETAKERS FLAT'
             }
         self.assertEqual(
-            self.address.premises(), premises,
-            "Incorrect Rule 6 w/ building premises")
+            self.address.premises(), premises, "Incorrect Rule 6 w/ building premises")
 
 
 class TestRule6(unittest.TestCase):
@@ -177,18 +167,12 @@ class TestRule6(unittest.TestCase):
             "HORLEY",
             "RH6 0HP"
             ]
-        self.assertEqual(
-            self.address.as_list(), address,
-            "Incorrect Rule 6 list format"
-            )
+        self.assertEqual(self.address.as_list(), address, "Incorrect Rule 6 list format")
 
     def test_string(self):
         """Test conversion to a string"""
         address = "STABLES FLAT, THE MANOR, UPPER HILL, HORLEY. RH6 0HP"
-        self.assertEqual(
-            self.address.as_str(), address,
-            "Incorrect Rule 6 string format"
-            )
+        self.assertEqual(self.address.as_str(), address, "Incorrect Rule 6 string format")
 
     def test_tuple(self):
         """Test conversion to a tuple"""
@@ -199,10 +183,7 @@ class TestRule6(unittest.TestCase):
             "HORLEY",
             "RH6 0HP"
             )
-        self.assertEqual(
-            self.address.as_tuple(), address,
-            "Incorrect Rule 6 tuple format"
-            )
+        self.assertEqual(self.address.as_tuple(), address, "Incorrect Rule 6 tuple format")
 
     def test_dict(self):
         """Test conversion to a dict"""
@@ -213,10 +194,7 @@ class TestRule6(unittest.TestCase):
             'post_town': "HORLEY",
             'postcode': "RH6 0HP"
             }
-        self.assertEqual(
-            self.address.as_dict(), address,
-            "Incorrect Rule 6 dict format"
-            )
+        self.assertEqual(self.address.as_dict(), address, "Incorrect Rule 6 dict format")
 
     def test_premises(self):
         """Test premises"""
@@ -224,10 +202,7 @@ class TestRule6(unittest.TestCase):
             'premises_name': 'THE MANOR',
             'sub_premises_name': 'STABLES FLAT'
             }
-        self.assertEqual(
-            self.address.premises(), premises,
-            "Incorrect Rule 6 premises"
-            )
+        self.assertEqual(self.address.premises(), premises, "Incorrect Rule 6 premises")
 
 
 if __name__ == '__main__':

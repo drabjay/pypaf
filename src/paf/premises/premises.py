@@ -22,11 +22,7 @@ class Premises(
 
     def __repr__(self):
         """Return full representation of a Premises"""
-        args = {
-            k: getattr(self, k)
-            for k in list(self.attrs)
-            if getattr(self, k, None)
-            }
+        args = {k: getattr(self, k) for k in list(self.attrs) if getattr(self, k, None)}
         return self.__class__.__name__ + '(' + str(args) + ')'
 
     def __str__(self):
@@ -49,32 +45,23 @@ class Premises(
     @property
     def name_and_thoroughfare_or_locality(self):
         """Returns building number and first thoroughfare or locality"""
-        return self._concatenate(
-            ('building_name', 'first_thoroughfare_or_locality')
-            )
+        return self._concatenate(('building_name', 'first_thoroughfare_or_locality'))
 
     @property
     def name_last_word_and_thoroughfare_or_locality(self):
         """Returns last word of building name and first thoroughfare"""
-        return self._concatenate(
-            ('building_name_last_word', 'first_thoroughfare_or_locality')
-            )
+        return self._concatenate(('building_name_last_word', 'first_thoroughfare_or_locality'))
 
     @property
     def number_and_thoroughfare_or_locality(self):
         """Returns building number and first thoroughfare or locality"""
-        return self._concatenate(
-            ('building_number', 'first_thoroughfare_or_locality')
-            )
+        return self._concatenate(('building_number', 'first_thoroughfare_or_locality'))
 
     @property
     def number_sub_name_and_thoroughfare_or_locality(self):
         """Returns building number, sub-building name and first thoroughfare"""
         return self._concatenate(
-            (
-                'building_number_and_sub_building_name',
-                'first_thoroughfare_or_locality'
-                )
+            ('building_number_and_sub_building_name', 'first_thoroughfare_or_locality')
             )
 
     @property
@@ -85,16 +72,12 @@ class Premises(
     @property
     def sub_name_comma_name(self):
         """Returns sub-building name and building name joined with a comma"""
-        return self._concatenate(
-            ('sub_building_name', 'building_name'), ', '
-            )
+        return self._concatenate(('sub_building_name', 'building_name'), ', ')
 
     @property
     def sub_name_and_thoroughfare_or_locality(self):
         """Returns sub-building number and first thoroughfare or locality"""
-        return self._concatenate(
-            ('sub_building_name', 'first_thoroughfare_or_locality')
-            )
+        return self._concatenate(('sub_building_name', 'first_thoroughfare_or_locality'))
 
     @property
     def building_name_but_last_word(self):

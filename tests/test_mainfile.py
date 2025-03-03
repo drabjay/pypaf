@@ -36,10 +36,7 @@ class TestMainfile(unittest.TestCase):
             "GLASGOW",
             "G72 0UP"
             ]
-        self.assertEqual(
-            self.address.as_list(), address,
-            "Incorrect Mainfile list format"
-            )
+        self.assertEqual(self.address.as_list(), address, "Incorrect Mainfile list format")
 
     def test_string(self):
         """Test conversion to a string"""
@@ -54,10 +51,7 @@ class TestMainfile(unittest.TestCase):
             "GLASGOW. "
             "G72 0UP"
             )
-        self.assertEqual(
-            self.address.as_str(), address,
-            "Incorrect Mainfile string format"
-            )
+        self.assertEqual(self.address.as_str(), address, "Incorrect Mainfile string format")
 
     def test_tuple(self):
         """Test conversion to a tuple"""
@@ -72,10 +66,7 @@ class TestMainfile(unittest.TestCase):
             "GLASGOW",
             "G72 0UP"
             )
-        self.assertEqual(
-            self.address.as_tuple(), address,
-            "Incorrect Mainfile tuple format"
-            )
+        self.assertEqual(self.address.as_tuple(), address, "Incorrect Mainfile tuple format")
 
     def test_dict(self):
         """Test conversion to a dict"""
@@ -90,10 +81,7 @@ class TestMainfile(unittest.TestCase):
             'post_town': "GLASGOW",
             'postcode': "G72 0UP"
             }
-        self.assertEqual(
-            self.address.as_dict(), address,
-            "Incorrect Mainfile dict format"
-            )
+        self.assertEqual(self.address.as_dict(), address, "Incorrect Mainfile dict format")
 
     def test_premises(self):
         """Test premises"""
@@ -103,10 +91,7 @@ class TestMainfile(unittest.TestCase):
             'sub_premises_type': 'UNIT',
             'sub_premises_number': 1
             }
-        self.assertEqual(
-            self.address.premises(), premises,
-            "Incorrect Mainfile premises"
-            )
+        self.assertEqual(self.address.premises(), premises, "Incorrect Mainfile premises")
 
 
 if __name__ == '__main__':

@@ -15,8 +15,7 @@ class ExceptionMixin(BuildingTypeMixin, SplitMixin):
 
     @classmethod
     def __is_exception_ii(cls, val):
-        """Returns if first and penultimate characters are numeric,
-           and last is alphabetic"""
+        """Returns if first and penultimate characters are numeric, and last is alphabetic"""
         return re.fullmatch(r'^([\d][a-zA-Z]|[\d].*?[\d][a-zA-Z])$', val)
 
     @classmethod
@@ -36,8 +35,7 @@ class ExceptionMixin(BuildingTypeMixin, SplitMixin):
     def __is_exception_iv(self, attr):  # pylint: disable=unused-argument
         """Returns if value starts with a known building type
            and ends with numeric range or numeric alpha suffix"""
-        # Do not include suffix check
-        # as does not account for values such as BLOCK B
+        # Do not include suffix check as does not account for values such as BLOCK B
         return self.is_known_building_type(attr)
         # and re.match(r'^\d', self.last_word(attr))
 

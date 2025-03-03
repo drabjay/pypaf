@@ -27,8 +27,4 @@ class LineableMixin():
     def _lines(self, attrs):
         """Returns list of premises lines from specified attributes"""
         lines = list(filter(None, [getattr(self, k, None) for k in attrs]))
-        return list(chain(*[
-            line
-            if isinstance(line, list) else [line]
-            for line in lines
-            ]))
+        return list(chain(*[line if isinstance(line, list) else [line] for line in lines]))

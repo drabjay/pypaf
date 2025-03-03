@@ -12,10 +12,7 @@ class Rule010(DependentPremisableMixin):
         if self.is_exception('building_name'):
             return ('name_and_thoroughfare_or_locality',)
         if self.is_split_exception('building_name'):
-            return (
-                'building_name_but_last_word',
-                'name_last_word_and_thoroughfare_or_locality'
-                )
+            return ('building_name_but_last_word', 'name_last_word_and_thoroughfare_or_locality')
         return ('building_name',)
 
     @property
