@@ -143,6 +143,79 @@ class TestRule6WithBuildingName(unittest.TestCase):
             self.address.premises(), premises, "Incorrect Rule 6 w/ building premises")
 
 
+class TestRule6WithSplitException(unittest.TestCase):
+    """Test Address Rule 6 with Split Building Name Exception"""
+
+    @classmethod
+    def setUpClass(cls):
+        """Set up Address instance"""
+        cls.address = paf.Address({
+            'sub_building_name': "STUDIO 18",
+            'building_name': "JUSTICE MILL STUDIOS 21-23",
+            'thoroughfare_name': "JUSTICE MILL",
+            'thoroughfare_descriptor': "LANE",
+            'post_town': "ABERDEEN",
+            'postcode': "AB11 6AG"
+            })
+
+    def test_list(self):
+        """Test conversion to an list"""
+        address = [
+            "STUDIO 18",
+            "JUSTICE MILL STUDIOS",
+            "21-23 JUSTICE MILL LANE",
+            "ABERDEEN",
+            "AB11 6AG"
+            ]
+        self.assertEqual(
+            self.address.as_list(), address, "Incorrect Rule 6 w/ split building list format"
+            )
+
+    def test_string(self):
+        """Test conversion to a string"""
+        address = "STUDIO 18, JUSTICE MILL STUDIOS, 21-23 JUSTICE MILL LANE, ABERDEEN. AB11 6AG"
+        self.assertEqual(
+            self.address.as_str(), address, "Incorrect Rule 6 w/ split building string format"
+            )
+
+    def test_tuple(self):
+        """Test conversion to a tuple"""
+        address = (
+            "STUDIO 18",
+            "JUSTICE MILL STUDIOS",
+            "21-23 JUSTICE MILL LANE",
+            "ABERDEEN",
+            "AB11 6AG"
+            )
+        self.assertEqual(
+            self.address.as_tuple(), address, "Incorrect Rule 6 w/ split building tuple format"
+            )
+
+    def test_dict(self):
+        """Test conversion to a dict"""
+        address = {
+            'line_1': "STUDIO 18",
+            'line_2': "JUSTICE MILL STUDIOS",
+            'line_3': "21-23 JUSTICE MILL LANE",
+            'post_town': "ABERDEEN",
+            'postcode': "AB11 6AG"
+            }
+        self.assertEqual(
+            self.address.as_dict(), address, "Incorrect Rule 6 w/ split building dict format"
+            )
+
+    def test_premises(self):
+        """Test premises"""
+        premises = {
+            'premises_number': 21,
+            'premises_suffix': '-23',
+            'premises_name': 'JUSTICE MILL STUDIOS',
+            'sub_premises_name': 'STUDIO 18'
+            }
+        self.assertEqual(
+            self.address.premises(), premises, "Incorrect Rule 6 w/ split building premises")
+
+
 class TestRule6(unittest.TestCase):
     """Test Address Rule 6 without Exception"""
 

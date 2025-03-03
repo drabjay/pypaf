@@ -13,9 +13,17 @@ class Rule110(PremisableMixin):
             return ('sub_name_and_name',)
         if self.is_exception('building_name'):
             return ('sub_building_name', 'name_and_thoroughfare_or_locality')
+        if self.is_split_exception('building_name'):
+            return (
+                'sub_building_name', 'building_name_but_last_word',
+                'name_last_word_and_thoroughfare_or_locality'
+                )
         return ('sub_building_name', 'building_name')
 
     @property
     def includes_first_thoroughfare_or_locality(self):
         """Returns if premises includes first thoroughfare or locality"""
-        return (not self.is_exception('sub_building_name')) and self.is_exception('building_name')
+        return (
+            not self.is_exception('sub_building_name')
+            and (self.is_exception('building_name') or self.is_split_exception('building_name'))
+            )
