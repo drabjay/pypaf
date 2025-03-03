@@ -6,7 +6,7 @@ from .attribute import AttributeMixin
 from .immutable import ImmutableMixin
 from .lineable import LineableMixin
 from .thoroughfare_locality import ThoroughfareLocalityMixin
-from .premises.premises import Premises
+from .premises import Premises
 
 
 class Address(ImmutableMixin, AttributeMixin, ThoroughfareLocalityMixin, LineableMixin):
