@@ -46,7 +46,8 @@ class ExceptionMixin(BuildingTypeMixin, SplitMixin):
     def is_split_exception(self, attr):
         """Returns if attribute should be split"""
         return (
-            self.__is_exception(self.last_word(attr))
+            (self.__is_exception_i(self.last_word(attr))
+                or self.__is_exception_ii(self.last_word(attr)))
             and not self.last_word(attr).isdigit()
             and not self.__is_exception_iv(attr)
             )

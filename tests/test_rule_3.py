@@ -274,5 +274,80 @@ class TestRule3WithoutSplit(unittest.TestCase):
             )
 
 
+class TestRule3WithoutCharSplit(unittest.TestCase):
+    """Test Address Rule 3 without Character Split Exception"""
+
+    @classmethod
+    def setUpClass(cls):
+        """Set up Address instance"""
+        cls.address = paf.Address({
+            'organisation_name': "JOBCENTRE PLUS",
+            'building_name': "ABERDEEN B D C",
+            'thoroughfare_name': "WELLINGTON",
+            'thoroughfare_descriptor': "CIRCLE",
+            'post_town': "ABERDEEN",
+            'postcode': "AB99 8AB"
+            })
+
+    def test_list(self):
+        """Test conversion to an list"""
+        address = [
+            "JOBCENTRE PLUS",
+            "ABERDEEN B D C",
+            "WELLINGTON CIRCLE",
+            "ABERDEEN",
+            "AB99 8AB"
+            ]
+        self.assertEqual(
+            self.address.as_list(), address, "Incorrect Rule 3 w/o char split list format"
+            )
+
+    def test_string(self):
+        """Test conversion to a string"""
+        address = (
+            "JOBCENTRE PLUS, "
+            "ABERDEEN B D C, "
+            "WELLINGTON CIRCLE, "
+            "ABERDEEN. "
+            "AB99 8AB"
+            )
+        self.assertEqual(
+            self.address.as_str(), address, "Incorrect Rule 3 w/o char split string format"
+            )
+
+    def test_tuple(self):
+        """Test conversion to a tuple"""
+        address = (
+            "JOBCENTRE PLUS",
+            "ABERDEEN B D C",
+            "WELLINGTON CIRCLE",
+            "ABERDEEN",
+            "AB99 8AB"
+            )
+        self.assertEqual(
+            self.address.as_tuple(), address, "Incorrect Rule 3 w/o char split tuple format"
+            )
+
+    def test_dict(self):
+        """Test conversion to a dict"""
+        address = {
+            'line_1': "JOBCENTRE PLUS",
+            'line_2': "ABERDEEN B D C",
+            'line_3': "WELLINGTON CIRCLE",
+            'post_town': "ABERDEEN",
+            'postcode': "AB99 8AB"
+            }
+        self.assertEqual(
+            self.address.as_dict(), address, "Incorrect Rule 3 w/o char split dict format"
+            )
+
+    def test_premises(self):
+        """Test premises"""
+        premises = {'premises_name': 'ABERDEEN B D C'}
+        self.assertEqual(
+            self.address.premises(), premises, "Incorrect Rule 3 w/o char split premises"
+            )
+
+
 if __name__ == '__main__':
     unittest.main()
