@@ -80,6 +80,11 @@ class Premises(
         return self._concatenate(('sub_building_name', 'first_thoroughfare_or_locality'))
 
     @property
+    def sub_and_building_name_but_last_word(self):
+        """Returns sub-building name and but last word of the building name"""
+        return self._concatenate(('sub_building_name', 'building_name_but_last_word'))
+
+    @property
     def building_name_but_last_word(self):
         """Returns all but last word of the building name"""
         return self.but_last_word('building_name')
