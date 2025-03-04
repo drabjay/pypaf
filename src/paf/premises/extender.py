@@ -1,14 +1,7 @@
 """Premises Extender Mixin"""
 
 import sys
-from .rule000 import Rule000  # pylint: disable=unused-import # noqa: F401
-from .rule001 import Rule001  # pylint: disable=unused-import # noqa: F401
-from .rule010 import Rule010  # pylint: disable=unused-import # noqa: F401
-from .rule100 import Rule100  # pylint: disable=unused-import # noqa: F401
-from .rule011 import Rule011  # pylint: disable=unused-import # noqa: F401
-from .rule101 import Rule101  # pylint: disable=unused-import # noqa: F401
-from .rule110 import Rule110  # pylint: disable=unused-import # noqa: F401
-from .rule111 import Rule111  # pylint: disable=unused-import # noqa: F401
+import importlib
 
 
 class ExtenderMixin():
@@ -17,8 +10,12 @@ class ExtenderMixin():
     @property
     def rule(self):
         """Returns premises rule class"""
-        rule = ''.join(['0' if self.is_empty(k) else '1' for k in self.building_attrs])
-        return getattr(sys.modules[__name__], 'Rule' + rule)
+        rule_num = ''.join(['0' if self.is_empty(k) else '1' for k in self.building_attrs])
+        package_name = getattr(sys.modules[__name__], '__package__', None)
+        module_name = f'rule{rule_num}'
+        module = importlib.import_module(f'{package_name}.{module_name}')
+        class_name = f'Rule{rule_num}'
+        return getattr(module, class_name)
 
     def extend(self):
         """Dynamically extends instance with appropriate rule"""
