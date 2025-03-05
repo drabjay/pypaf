@@ -95,6 +95,11 @@ class Premises(
         return self.last_word('building_name')
 
     @property
+    def building_name_last_two_words(self):
+        """Returns last two words of the building name"""
+        return self.last_two_words('building_name')
+
+    @property
     def sub_building_name_but_last_word(self):
         """Returns all but last word of the sub-building name"""
         return self.but_last_word('sub_building_name')

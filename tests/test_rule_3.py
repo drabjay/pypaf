@@ -349,5 +349,85 @@ class TestRule3WithoutCharSplit(unittest.TestCase):
             )
 
 
+class TestRule3WithoutTypeSplit(unittest.TestCase):
+    """Test Address Rule 3 without Building Type Split Exception"""
+
+    @classmethod
+    def setUpClass(cls):
+        """Set up Address instance"""
+        cls.address = paf.Address({
+            'organisation_name': "P S G MARINE & LOGISTICS LTD",
+            'building_name': "PORT SERVICES HOUSE UNIT 14A",
+            'thoroughfare_name': "PETERSEAT",
+            'thoroughfare_descriptor': "DRIVE",
+            'dependent_locality': "ALTENS INDUSTRIAL ESTATE",
+            'post_town': "ABERDEEN",
+            'postcode': "AB12 3HT"
+            })
+
+    def test_list(self):
+        """Test conversion to an list"""
+        address = [
+            "P S G MARINE & LOGISTICS LTD",
+            "PORT SERVICES HOUSE UNIT 14A",
+            "PETERSEAT DRIVE",
+            "ALTENS INDUSTRIAL ESTATE",
+            "ABERDEEN",
+            "AB12 3HT"
+            ]
+        self.assertEqual(
+            self.address.as_list(), address, "Incorrect Rule 3 w/o type split list format"
+            )
+
+    def test_string(self):
+        """Test conversion to a string"""
+        address = (
+            "P S G MARINE & LOGISTICS LTD, "
+            "PORT SERVICES HOUSE UNIT 14A, "
+            "PETERSEAT DRIVE, "
+            "ALTENS INDUSTRIAL ESTATE, "
+            "ABERDEEN. "
+            "AB12 3HT"
+            )
+        self.assertEqual(
+            self.address.as_str(), address, "Incorrect Rule 3 w/o type split string format"
+            )
+
+    def test_tuple(self):
+        """Test conversion to a tuple"""
+        address = (
+            "P S G MARINE & LOGISTICS LTD",
+            "PORT SERVICES HOUSE UNIT 14A",
+            "PETERSEAT DRIVE",
+            "ALTENS INDUSTRIAL ESTATE",
+            "ABERDEEN",
+            "AB12 3HT"
+            )
+        self.assertEqual(
+            self.address.as_tuple(), address, "Incorrect Rule 3 w/o type split tuple format"
+            )
+
+    def test_dict(self):
+        """Test conversion to a dict"""
+        address = {
+            'line_1': "P S G MARINE & LOGISTICS LTD",
+            'line_2': "PORT SERVICES HOUSE UNIT 14A",
+            'line_3': "PETERSEAT DRIVE",
+            'line_4': "ALTENS INDUSTRIAL ESTATE",
+            'post_town': "ABERDEEN",
+            'postcode': "AB12 3HT"
+            }
+        self.assertEqual(
+            self.address.as_dict(), address, "Incorrect Rule 3 w/o type split dict format"
+            )
+
+    def test_premises(self):
+        """Test premises"""
+        premises = {'premises_name': 'PORT SERVICES HOUSE UNIT 14A'}
+        self.assertEqual(
+            self.address.premises(), premises, "Incorrect Rule 3 w/o type split premises"
+            )
+
+
 if __name__ == '__main__':
     unittest.main()

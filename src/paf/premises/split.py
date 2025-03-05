@@ -25,6 +25,15 @@ class SplitMixin():
             return string
 
     @classmethod
+    def __last_two_words(cls, string):
+        """Returns last two words of the string"""
+        try:
+            *_, penultimate, last = string.split()
+            return ' '.join([penultimate, last])
+        except ValueError:
+            return cls.__last_word(string)
+
+    @classmethod
     def __leading_digits(cls, string):
         """Returns the leading digits from the string"""
         match = re.match(r'^\d+', string)
@@ -48,6 +57,10 @@ class SplitMixin():
     def last_word(self, attr):
         """Returns last word of the attribute"""
         return self.__last_word(str(getattr(self, attr, '')))
+
+    def last_two_words(self, attr):
+        """Returns last two word of the attribute"""
+        return self.__last_two_words(str(getattr(self, attr, '')))
 
     def leading_digits(self, attr):
         """Returns the leading digits from the attribute"""
