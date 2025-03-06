@@ -15,14 +15,14 @@ class BuildingTypeMixin(SplitMixin):
             "MAISONETTE", "MAISONETTES", "REAR OF",
             "SHOP", "SHOPS", "STALL", "STALLS",
             "SUITE", "SUITES", "UNIT", "UNITS",
-            "PO BOX"
+            "FLAT", "FLATS", "PO BOX"
             )
 
     @classmethod
     @property
     def known_sub_building_types(cls):
         """Returns known sub-building types"""
-        return cls.known_building_types + ("FLAT", "FLATS")
+        return cls.known_building_types
 
     def is_known_building_type(self, attr='building_name'):
         """Returns if attribute starts with a known type"""
