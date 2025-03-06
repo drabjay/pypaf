@@ -52,6 +52,6 @@ class ExceptionMixin(BuildingTypeMixin, SplitMixin):
             and not self.__is_exception_iv(attr)
             and (
                 attr != 'building_name'
-                or not self.is_known_building_type('building_name_last_two_words')
+                or not self.is_known_split_building_type('building_name_last_two_words')
                 )
             )

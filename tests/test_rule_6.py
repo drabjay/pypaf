@@ -286,6 +286,91 @@ class TestRule6WithDoubleException(unittest.TestCase):
             self.address.premises(), premises, "Incorrect Rule 6 w/ split building premises")
 
 
+class TestRule6WithBuilding(unittest.TestCase):
+    """Test Address Rule 6 with Building Non-Exception"""
+
+    @classmethod
+    def setUpClass(cls):
+        """Set up Address instance"""
+        cls.address = paf.Address({
+            'sub_building_name': "FLAT 1",
+            'building_name': "SUNLIFE BUILDING 1A",
+            'thoroughfare_name': "SOUTH VIEW",
+            'thoroughfare_descriptor': "PLACE",
+            'dependent_locality': "MIDSOMER NORTON",
+            'post_town': "RADSTOCK",
+            'postcode': "BA3 2AX"
+            })
+
+    def test_list(self):
+        """Test conversion to an list"""
+        address = [
+            "FLAT 1",
+            "SUNLIFE BUILDING",
+            "1A SOUTH VIEW PLACE",
+            "MIDSOMER NORTON",
+            "RADSTOCK",
+            "BA3 2AX"
+            ]
+        self.assertEqual(
+            self.address.as_list(), address, "Incorrect Rule 6 w/ building non list format"
+            )
+
+    def test_string(self):
+        """Test conversion to a string"""
+        address = (
+            "FLAT 1, "
+            "SUNLIFE BUILDING, "
+            "1A SOUTH VIEW PLACE, "
+            "MIDSOMER NORTON, "
+            "RADSTOCK. "
+            "BA3 2AX"
+            )
+        self.assertEqual(
+            self.address.as_str(), address, "Incorrect Rule 6 w/ building non string format"
+            )
+
+    def test_tuple(self):
+        """Test conversion to a tuple"""
+        address = (
+            "FLAT 1",
+            "SUNLIFE BUILDING",
+            "1A SOUTH VIEW PLACE",
+            "MIDSOMER NORTON",
+            "RADSTOCK",
+            "BA3 2AX"
+            )
+        self.assertEqual(
+            self.address.as_tuple(), address, "Incorrect Rule 6 w/ building non tuple format"
+            )
+
+    def test_dict(self):
+        """Test conversion to a dict"""
+        address = {
+            'line_1': "FLAT 1",
+            'line_2': "SUNLIFE BUILDING",
+            'line_3': "1A SOUTH VIEW PLACE",
+            'line_4': "MIDSOMER NORTON",
+            'post_town': "RADSTOCK",
+            'postcode': "BA3 2AX"
+            }
+        self.assertEqual(
+            self.address.as_dict(), address, "Incorrect Rule 6 w/ building non dict format"
+            )
+
+    def test_premises(self):
+        """Test premises"""
+        premises = {
+            'premises_number': 1,
+            'premises_suffix': 'A',
+            'premises_name': 'SUNLIFE BUILDING',
+            'sub_premises_type': 'FLAT',
+            'sub_premises_number': 1
+            }
+        self.assertEqual(
+            self.address.premises(), premises, "Incorrect Rule 6 w/ building non premises")
+
+
 class TestRule6(unittest.TestCase):
     """Test Address Rule 6 without Exception"""
 
