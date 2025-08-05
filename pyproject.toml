@@ -18,12 +18,29 @@ Homepage = "https://github.com/drabjay/pypaf"
 Repository = "https://github.com/drabjay/pypaf.git"
 Issues = "https://github.com/drabjay/paf/issues"
 
+[project.optional-dependencies]
+dev = [
+  "pylint",
+  "pytest",
+]
+
 [build-system]
 requires = ["setuptools >= 61.0"]
 build-backend = "setuptools.build_meta"
 
+[tool.setuptools]
+package-dir = {"" = "src"}
+
 [tool.setuptools.dynamic]
-version = { attr = "paf.__version__" }
+version = { attr = "paf.version.__version__" }
 
 [tool.setuptools.packages.find]
 where = ["src"] 
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = "tests"
+
+[tool.pylint.MASTER]
+init-hook = 'import sys; sys.path.append("src")'
+generated-members = 'premises'
