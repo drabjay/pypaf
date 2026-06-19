@@ -36,7 +36,7 @@ class SplitMixin():
     @classmethod
     def __leading_digits(cls, string):
         """Returns the leading digits from the string"""
-        match = re.match(r'^\d+', string)
+        match = re.search(r'^\d+', string)
         if match:
             return int(match.group(0))
         return 0
@@ -44,7 +44,7 @@ class SplitMixin():
     @classmethod
     def __after_leading_digits(cls, string):
         """Returns the characters after the leading digits from the string"""
-        match = re.match(r'^\d+', string)
+        match = re.search(r'^\d+', string)
         if match:
             end_of_digits = match.end()
             return string[end_of_digits:]

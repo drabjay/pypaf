@@ -37,7 +37,7 @@ class ExceptionMixin(BuildingTypeMixin, SplitMixin):
            and ends with numeric range or numeric alpha suffix"""
         # Do not include suffix check as does not account for values such as BLOCK B
         return self.is_known_building_type(attr)
-        # and re.match(r'^\d', self.last_word(attr))
+        # and re.search(r'^\d', self.last_word(attr))
 
     def is_exception(self, attr):
         """Returns if attribute is an exception"""
