@@ -6,17 +6,8 @@ from itertools import chain
 class LineableMixin():
     """Converts Paf address elements into list of address lines"""
 
-    @classmethod
-    @property
-    def optional_lines_attrs(cls):
-        """Returns optional address line attributes"""
-        return ('thoroughfares_and_localities',)
-
-    @classmethod
-    @property
-    def lines_attrs(cls):
-        """Returns optional address line attributes and post_town"""
-        return cls.optional_lines_attrs + ('post_town',)
+    optional_lines_attrs = ('thoroughfares_and_localities',)
+    lines_attrs = optional_lines_attrs + ('post_town',)
 
     @property
     def optional_lines(self):

@@ -4,35 +4,20 @@
 class AttributeMixin():
     """Premises elements and derived properties"""
 
-    @classmethod
-    @property
-    def organisation_attrs(cls):
-        """Returns Paf organisation elements"""
-        return ('organisation_name', 'department_name')
+    organisation_attrs = ('organisation_name', 'department_name')
+    building_attrs = ('sub_building_name', 'building_name', 'building_number')
+    other_attrs = ('po_box_number', 'concatenation_indicator')
 
-    @classmethod
     @property
-    def building_attrs(cls):
-        """Returns Paf building elements"""
-        return ('sub_building_name', 'building_name', 'building_number')
-
-    @classmethod
-    @property
-    def other_attrs(cls):
-        """Returns Paf other elements"""
-        return ('po_box_number', 'concatenation_indicator')
-
-    @classmethod
-    @property
-    def attrs(cls):
+    def attrs(self):
         """Returns all Paf premises elements"""
         return (
-            cls.organisation_attrs
-            + cls.building_attrs
-            + cls.dependent_thoroughfare_attrs
-            + cls.thoroughfare_attrs
-            + cls.locality_attrs
-            + cls.other_attrs
+            self.organisation_attrs
+            + self.building_attrs
+            + self.dependent_thoroughfare_attrs
+            + self.thoroughfare_attrs
+            + self.locality_attrs
+            + self.other_attrs
             )
 
     def is_empty(self, attr):

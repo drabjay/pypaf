@@ -6,14 +6,10 @@ from .exception import ExceptionMixin
 class PremisableMixin(ExceptionMixin):
     """Returns the values for the premises properties"""
 
-    @classmethod
-    @property
-    def premises_attrs(cls):
-        """Returns derived premises elements"""
-        return (
-            'premises_type', 'premises_number', 'premises_suffix', 'premises_name',
-            'sub_premises_type', 'sub_premises_number', 'sub_premises_suffix', 'sub_premises_name'
-            )
+    premises_attrs = (
+        'premises_type', 'premises_number', 'premises_suffix', 'premises_name',
+        'sub_premises_type', 'sub_premises_number', 'sub_premises_suffix', 'sub_premises_name'
+        )
 
     @property
     def _premises_number(self):

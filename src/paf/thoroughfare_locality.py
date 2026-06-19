@@ -4,29 +4,14 @@
 class ThoroughfareLocalityMixin():
     """Thoroughfare and locality processing"""
 
-    @classmethod
-    @property
-    def dependent_thoroughfare_attrs(cls):
-        """Returns Paf dependent thoroughfare elements"""
-        return ('dependent_thoroughfare_name', 'dependent_thoroughfare_descriptor')
-
-    @classmethod
-    @property
-    def thoroughfare_attrs(cls):
-        """Returns Paf thoroughfare elements"""
-        return ('thoroughfare_name', 'thoroughfare_descriptor')
-
-    @classmethod
-    @property
-    def locality_attrs(cls):
-        """Returns Paf locality elements"""
-        return ('double_dependent_locality', 'dependent_locality')
-
-    @classmethod
-    @property
-    def thoroughfare_and_locality_attrs(cls):
-        """Returns derived thoroughfare and locality attributes"""
-        return ('dependent_thoroughfare', 'thoroughfare') + cls.locality_attrs
+    dependent_thoroughfare_attrs = (
+        'dependent_thoroughfare_name', 'dependent_thoroughfare_descriptor'
+        )
+    thoroughfare_attrs = ('thoroughfare_name', 'thoroughfare_descriptor')
+    locality_attrs = ('double_dependent_locality', 'dependent_locality')
+    thoroughfare_and_locality_attrs = (
+        ('dependent_thoroughfare', 'thoroughfare') + locality_attrs
+        )
 
     @property
     def thoroughfares_and_localities(self):
