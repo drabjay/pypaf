@@ -4,26 +4,41 @@ from ..initiator import attribute_init
 from ..immutable import ImmutableMixin
 from ..thoroughfare_locality import ThoroughfareLocalityMixin
 from .attribute import AttributeMixin
-from .extender import ExtenderMixin
 from .lineable import LineableMixin
 from .split import SplitMixin
+from .rule000 import Rule000
+from .rule001 import Rule001
+from .rule010 import Rule010
+from .rule011 import Rule011
+from .rule100 import Rule100
+from .rule101 import Rule101
+from .rule110 import Rule110
+from .rule111 import Rule111
 
 
 class Premises(
-        ImmutableMixin, ExtenderMixin, AttributeMixin,
+        ImmutableMixin, AttributeMixin,
         ThoroughfareLocalityMixin, LineableMixin, SplitMixin
         ):
     """PAF Address Premises class"""
 
+    def __new__(cls, *args, **kwargs):
+        """Create subclass instance based on the presence of building attributes"""
+        if cls is Premises:
+            elements = kwargs if kwargs else (args[0] if args else {})
+            rule_num = ''.join(['0' if not elements.get(k) else '1' for k in cls.building_attrs])
+            subclass_name = f'PremisesRule{rule_num}'
+            return object.__new__(globals().get(subclass_name))
+        return object.__new__(cls)
+
     @attribute_init
     def __init__(self, *args, **kwargs):  # pylint: disable=unused-argument
         """Initialise Premises elements"""
-        self.extend()
 
     def __repr__(self):
         """Return full representation of a Premises"""
         args = {k: getattr(self, k) for k in list(self.attrs) if getattr(self, k, None)}
-        return self.__class__.__name__ + '(' + str(args) + ')'
+        return 'Premises(' + str(args) + ')'
 
     def __str__(self):
         """Return Premises as string representation"""
@@ -114,3 +129,38 @@ class Premises(
         return concatenator.join(
             filter(None, [getattr(self, k, None) for k in keys])
             )
+
+# pylint: disable=too-many-ancestors
+
+class PremisesRule000(Premises, Rule000):
+    """Rule 000 Premises subclass"""
+
+
+class PremisesRule001(Premises, Rule001):
+    """Rule 001 Premises subclass"""
+
+
+class PremisesRule010(Premises, Rule010):
+    """Rule 010 Premises subclass"""
+
+
+class PremisesRule011(Premises, Rule011):
+    """Rule 011 Premises subclass"""
+
+
+class PremisesRule100(Premises, Rule100):
+    """Rule 100 Premises subclass"""
+
+
+class PremisesRule101(Premises, Rule101):
+    """Rule 101 Premises subclass"""
+
+
+class PremisesRule110(Premises, Rule110):
+    """Rule 110 Premises subclass"""
+
+
+class PremisesRule111(Premises, Rule111):
+    """Rule 111 Premises subclass"""
+
+# pylint: enable=too-many-ancestors
